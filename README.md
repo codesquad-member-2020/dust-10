@@ -25,15 +25,15 @@
 
 ## 이슈 관리
 
-- [Github 이슈](https://github.com/codesquad-memeber-2020/signup-10/issues/1)
+- [Github 이슈](https://github.com/codesquad-member-2020/dust-10/issues)
 - 작업 목록을 Github issue로 관리
 - 작업할 내용을 issue로 만들고 서로 소통하기
 - 작업이 끝나면 merge하고 closed시킴
-- 담당자(assignee), 프로젝트(회원 가입 그룹10) 지정
+- 담당자(assignee), (선택)프로젝트(미세먼지 서비스) 지정
 
 ### 프로젝트 현황
 
-- [회원 가입 그룹10](https://github.com/codesquad-memeber-2020/signup-10/projects/1)
+- [프로젝트 현황판](https://github.com/codesquad-member-2020/dust-10/projects/1)
 - 이슈를 만들고 프로젝트를 지정하면 자동으로 Todo에 등록됨
 - 진행하고 있는 작업을 In progress로 옮기고 진행
 - 작업이 끝나면 closed시킴. 그러면 자동으로 Done으로 옮겨짐
@@ -42,4 +42,6 @@
 
 - heroku에 배포
 - `dev` 브랜치 사용
-- Github action 사용
+
+# 협업용 문서
+- [요구사항 정리](https://docs.google.com/spreadsheets/d/1F78nVhjuqQlbdAzVjLXEOuOamQhsr9yzkr-gz22pr3k/edit?usp=sharing)
