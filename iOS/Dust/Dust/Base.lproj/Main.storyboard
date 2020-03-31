@@ -10,8 +10,8 @@
         <!--미세먼지-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="Dust" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
+                <viewController id="9pv-A4-QxB" customClass="DustStateViewController" customModule="Dust" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tsR-hK-woN" customClass="DustStateView" customModule="Dust" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -120,14 +120,14 @@
                             <constraint firstItem="PFA-5N-uSA" firstAttribute="top" secondItem="Msw-jT-9W9" secondAttribute="bottom" id="vKl-Ob-9BH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
+                        <connections>
+                            <outlet property="dateTimeLabel" destination="B6X-eu-voh" id="Uir-Sw-HpC"/>
+                            <outlet property="dustValue" destination="A5M-7J-77L" id="ekU-e0-sWm"/>
+                            <outlet property="stateSymbol" destination="PFA-5N-uSA" id="3tz-YV-LJF"/>
+                            <outlet property="stateText" destination="KQZ-1w-vlD" id="uTq-yC-Fp0"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="미세먼지" image="cloud.fill" catalog="system" id="acW-dT-cKf"/>
-                    <connections>
-                        <outlet property="dateTimeLabel" destination="B6X-eu-voh" id="llB-Sz-UtL"/>
-                        <outlet property="dustValue" destination="A5M-7J-77L" id="cfe-mg-uZU"/>
-                        <outlet property="stateLabel" destination="KQZ-1w-vlD" id="pzt-pc-b71"/>
-                        <outlet property="stateSymbol" destination="PFA-5N-uSA" id="Ca8-li-CJy"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
@@ -136,7 +136,7 @@
         <!--예보-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="Dust" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" customClass="DustForecastViewController" customModule="Dust" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

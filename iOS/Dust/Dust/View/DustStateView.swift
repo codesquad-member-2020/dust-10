@@ -1,22 +1,20 @@
-//
-
 import UIKit
 
-class FirstViewController: UIViewController {
+class DustStateView: UIView {
+
     @IBOutlet weak var stateSymbol: UILabel!
-    @IBOutlet weak var stateLabel: UILabel!
+    @IBOutlet weak var stateText: UILabel!
     @IBOutlet weak var dustValue: UILabel!
     @IBOutlet weak var dateTimeLabel: UILabel!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        let dustState = DustState(dateTime: Date(), value: 3.14, pm10Grade1h: 1)
-
+    func setData(dataSource dustState: DustState) {
         stateSymbol.text = dustState.grade.symbol
-        stateLabel.text = dustState.grade.label
+        stateText.text = dustState.grade.label
         dustValue.text = "\(dustState.value) µg/m³"
+        dateTimeLabel.text = dateFormat(for: dustState.dateTime)
+    }
 
+    private func dateFormat(for dateTime: Date) -> String {
         // dateformat
         let dateFormatter = DateFormatter()
         dateFormatter.doesRelativeDateFormatting = true
@@ -24,7 +22,6 @@ class FirstViewController: UIViewController {
         dateFormatter.dateStyle = .long
         dateFormatter.timeStyle = .short
 
-        dateTimeLabel.text = dateFormatter.string(from: dustState.dateTime)
+        return dateFormatter.string(from: dateTime)
     }
 }
-
