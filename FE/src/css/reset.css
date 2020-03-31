@@ -90,6 +90,8 @@ video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+  box-sizing: border-box;
+  font-family: "Poor Story", cursive;
 }
 /* HTML5 display-role reset for older browsers */
 article,
@@ -126,4 +128,17 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+img {
+  vertical-align: top;
+}
+button {
+  border: none;
+  outline: 0;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+  cursor: pointer;
 }
