@@ -61,7 +61,7 @@
   background-color: #12cad6;
 }
 
-#forecast__play-box .progress-bar__move-btn {
+#forecast__play-box .progress-bar__moving-btn {
   position: absolute;
   top: -7px;
   left: 0px;
