@@ -55,32 +55,37 @@
                                 <rect key="frame" x="0.0" y="419" width="414" height="394"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="graphCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="gT9-yK-aFa" detailTextLabel="E2V-hm-5kh" style="IBUITableViewCellStyleValue1" id="Jk8-k8-L4M">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="graphCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BarCell" id="Jk8-k8-L4M">
                                         <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jk8-k8-L4M" id="fse-4e-ilQ">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gT9-yK-aFa">
-                                                    <rect key="frame" x="20" y="12" width="33.5" height="20.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="200" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="E2V-hm-5kh">
-                                                    <rect key="frame" x="363" y="12" width="31" height="20.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WhW-2w-VjG">
+                                                    <rect key="frame" x="0.0" y="0.0" width="372.5" height="43.5"/>
+                                                    <color key="backgroundColor" red="0.019607843140000001" green="0.65098039220000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TFL-gk-odC">
+                                                    <rect key="frame" x="367" y="11.5" width="42" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="TFL-gk-odC" firstAttribute="centerY" secondItem="fse-4e-ilQ" secondAttribute="centerY" id="86I-ws-0BJ"/>
+                                                <constraint firstItem="WhW-2w-VjG" firstAttribute="top" secondItem="fse-4e-ilQ" secondAttribute="top" id="e2o-Ht-aDj"/>
+                                                <constraint firstAttribute="bottom" secondItem="WhW-2w-VjG" secondAttribute="bottom" id="lbU-hR-BUB"/>
+                                                <constraint firstItem="WhW-2w-VjG" firstAttribute="leading" secondItem="fse-4e-ilQ" secondAttribute="leading" id="oZ3-aU-iPj"/>
+                                                <constraint firstAttribute="trailing" secondItem="TFL-gk-odC" secondAttribute="trailing" constant="5" id="v3D-LC-b4c"/>
+                                                <constraint firstItem="WhW-2w-VjG" firstAttribute="width" secondItem="fse-4e-ilQ" secondAttribute="width" multiplier="0.9" id="vvb-UH-aPn"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </tableViewCell>
                                 </prototypes>
+                                <sections/>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="sgA-EK-G4p">
                                 <rect key="frame" x="145.5" y="379.5" width="123.5" height="19.5"/>
@@ -128,6 +133,9 @@
                         </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="미세먼지" image="cloud.fill" catalog="system" id="acW-dT-cKf"/>
+                    <connections>
+                        <outlet property="barChartTableView" destination="JcY-HZ-mV4" id="qKI-UP-QP6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
