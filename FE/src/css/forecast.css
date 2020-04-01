@@ -61,7 +61,7 @@
   background-color: #12cad6;
 }
 
-#forecast__play-box .progress-bar__moving-btn {
+#forecast__play-box .progress-bar__scrubber-btn {
   position: absolute;
   top: -7px;
   left: 0px;
