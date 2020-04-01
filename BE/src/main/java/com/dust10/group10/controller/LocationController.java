@@ -1,10 +1,18 @@
 package com.dust10.group10.controller;
 
+import com.dust10.group10.api.ApiResponse;
+import com.dust10.group10.domain.Station;
+import com.dust10.group10.service.ForecastService;
 import com.dust10.group10.service.LocationService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.io.IOException;
 
 @RequiredArgsConstructor
 @RestController
@@ -12,19 +20,26 @@ import org.springframework.web.bind.annotation.RestController;
 public class LocationController {
 
     private final LocationService locationService;
+    private final ForecastService forecastService;
 
     @GetMapping("/location")
-    public String locateStation() {
-        return locationService.locateStation();
+    public ApiResponse locateStation(@RequestParam(value = "longitude") double xAxis,
+                                @RequestParam(value = "latitude") double yAxis) {
+        try {
+            String station = locationService.locateStation(xAxis, yAxis);
+            return new ApiResponse(HttpStatus.OK, 200, new Station(station));
+        } catch (IOException e) {
+            return new ApiResponse(HttpStatus.NOT_FOUND, 404);
+        }
     }
 
     @GetMapping("/dust-status")
     public String measureDust() {
-        return locationService.stationMeasure();
+        return forecastService.stationMeasure();
     }
 
     @GetMapping("/forecast")
     public String forecast() {
-        return locationService.forecastDust();
+        return forecastService.forecastDust();
     }
 }
