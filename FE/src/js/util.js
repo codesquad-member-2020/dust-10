@@ -3,8 +3,8 @@ export function _$(selector, all, target = document) {
     ? target.querySelectorAll(selector)
     : target.querySelector(selector);
 }
-export function _c(element) {
-  const target = _$(element);
+
+export function _c(target) {
   return {
     add(className) {
       target.classList.add(className);
@@ -14,6 +14,7 @@ export function _c(element) {
     }
   };
 }
+
 export function __(element) {
   const target = _$(element);
   return {
