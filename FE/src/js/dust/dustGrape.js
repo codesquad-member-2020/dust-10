@@ -26,6 +26,10 @@ function examinedDustRating(pm10Grade1h, pm10Value, grapeElment) {
       registerFigureRating(grapeElment, pm10Value, GRAPE_COLOR.VERY_BAD);
       break;
     }
+    case FIGURE_RATING.NO_DATA: {
+      registerFigureRating(grapeElment, pm10Value, GRAPE_COLOR.VERY_BAD);
+      break;
+    }
   }
 }
 
