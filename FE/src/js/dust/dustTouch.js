@@ -51,3 +51,13 @@ function initTouch(e) {
 function changeTouchY(e) {
   option.initialY = e.touches[0].clientY - 0.1;
 }
+
+function swipeDirection(e) {
+  if (option.initialY !== null) {
+    let currentY = e.touches[0].clientY;
+
+    let diffY = option.initialY - currentY;
+
+    0 < diffY ? (option.touchSwipe = "top") : (option.touchSwipe = "bottom");
+  }
+}
