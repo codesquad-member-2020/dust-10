@@ -1,4 +1,4 @@
-import { _$, __, _c } from "./util.js";
+import { _$, __, _c, __$ } from "./util.js";
 
 const imageArea = _$(".forecast__map");
 const contentArea = _$(".forecast__content");
@@ -7,7 +7,7 @@ const imageMapKey = "imageUrl";
 const forecastApi = `https://dust10.herokuapp.com/api/forecast`;
 const imageMapAlt = "미세먼지 예보 이미지";
 
-const maxImageLength = 10;
+const maxImageLength = 3;
 
 function fetchData(url, func) {
   fetch(url)
@@ -51,52 +51,77 @@ function appendData(data, area) {
 
 ///...//슬라이더
 const playControls = ".play-box__controls";
+const pauseBtn = "controls__pause";
+const playBtn = "controls__play";
+const scrubberBtn = _$(".progress-bar__scrubber-btn");
+const progressBar = _$(".play-box__progress-bar");
+//안쓰면 빼기
+const imageSpeed = 50;
 
 function onToggleToBtn() {
   const controlBtns = _$(playControls);
   [...controlBtns.children].forEach(btn => btn.classList.toggle("on-none"));
 }
 
-const playBtn = "controls__pause";
-
 function onControls() {
-  __(playControls).on("touchend", ({ target }) => {
-    onToggleToBtn();
+  __(playControls).on("touchend", ({ target }) => ControlsEventHandler(target));
+}
 
-    const classList = target.classList;
-    if ([...classList].includes(playBtn)) return pauseImages();
-    playImages();
-  });
+function ControlsEventHandler(target) {
+  onToggleToBtn();
+
+  const classList = target.classList;
+  if ([...classList].includes(pauseBtn)) return pauseImages();
+  playImages();
 }
 
 const playBox = {
-  xCoordinate: 0,
-  count: 0
+  currentPos: 0,
+  count: 0,
+  imageIndex: 0
 };
 
 function playImages() {
-  const progressBar = _$(".play-box__progress-bar");
-  const scrubberBtn = _$(".progress-bar__scrubber-btn ");
+  const imageList = [...imageArea.children];
+  const imagesLength = imageList.length;
+  const maxLength = 100; //옵션
 
-  if (playBox.count % 10 === 0) {
-    const images = [...imageArea.children];
-    const imagesLength = images.length;
-
-    const maxLength = progressBar.offsetWidth;
-    // const maxLength = 100;
-
+  if (playBox.count % 30 === 0) {
+    // const maxLength = progressBar.offsetWidth;
     const movingDistance = maxLength / imagesLength;
+    //둘중 한개 쓰기
 
-    console.log(playBox.xCoordinate, movingDistance);
-    scrubberBtn.style.transform = `translateX(${playBox.xCoordinate}px)`;
-    // scrubberBtn.style.left = `${playBox.xCoordinate}%`;
-    playBox.xCoordinate += movingDistance;
-    if (playBox.xCoordinate > maxLength) playBox.xCoordinate = 0;
+    controlTransition();
+    scrubberBtn.style.left = `${playBox.currentPos}%`;
+    //퍼센트 아니면 픽셀로 쓰기
+    console.log(playBox.currentPos);
+
+    playBox.currentPos += movingDistance;
+    controlImage(imageList, imagesLength);
+
+    if (playBox.currentPos > maxLength) {
+      playBox.currentPos = 0;
+    }
   }
-
   playBox.count++;
 
   playBox.play = requestAnimationFrame(playImages);
+}
+
+function controlTransition() {
+  if (playBox.currentPos === 0) scrubberBtn.style.transition = `none`;
+  else scrubberBtn.style.transition = `all .5s linear`;
+}
+
+function controlImage(imageList, imagesLength) {
+  if (playBox.imageIndex - 1 >= 0)
+    __$(imageList[playBox.imageIndex - 1]).hide();
+  if (playBox.imageIndex >= imagesLength) {
+    playBox.imageIndex = 0;
+  }
+  __$(imageList[playBox.imageIndex]).show();
+
+  playBox.imageIndex++;
 }
 
 function pauseImages() {

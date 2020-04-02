@@ -21,6 +21,20 @@ export function __(element) {
     on(event, func) {
       target.addEventListener(event, func);
     },
+    show(className = "on-block") {
+      target.classList.add(className);
+    },
+    hide(className = "on-block") {
+      target.classList.remove(className);
+    }
+  };
+}
+
+export function __$(target) {
+  return {
+    on(event, func) {
+      target.addEventListener(event, func);
+    },
     show(className = "on-none") {
       target.classList.remove(className);
     },
