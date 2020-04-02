@@ -1,6 +1,6 @@
 import UIKit
 
-class BarChartCell: UITableViewCell {
+class BarCell: UITableViewCell {
     @IBOutlet weak var dustBar: UIView!
     @IBOutlet weak var dustValue: UILabel!
     @IBOutlet weak var dustBarWidthConstraint: NSLayoutConstraint!

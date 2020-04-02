@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D170D2424361EF000881BEC /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D170D2324361EF000881BEC /* UIColorExtension.swift */; };
+		8D170D2624361F4300881BEC /* DateFormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D170D2524361F4300881BEC /* DateFormatterExtension.swift */; };
+		8D170D2824361FA100881BEC /* Grade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D170D2724361FA100881BEC /* Grade.swift */; };
+		8D170D2A243620AD00881BEC /* ChartTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D170D29243620AD00881BEC /* ChartTableViewDataSource.swift */; };
 		8D170E692431C9C400499668 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D170E682431C9C400499668 /* AppDelegate.swift */; };
 		8D170E6B2431C9C400499668 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D170E6A2431C9C400499668 /* SceneDelegate.swift */; };
 		8D170E6D2431C9C400499668 /* StateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D170E6C2431C9C400499668 /* StateViewController.swift */; };
@@ -15,7 +19,7 @@
 		8D170E742431C9C900499668 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D170E732431C9C900499668 /* Assets.xcassets */; };
 		8D170E772431C9C900499668 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D170E752431C9C900499668 /* LaunchScreen.storyboard */; };
 		8D170E7F2432FAFC00499668 /* DustState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D170E7E2432FAFC00499668 /* DustState.swift */; };
-		8D6DD5102435C746006D2A0C /* BarChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6DD50F2435C746006D2A0C /* BarChartCell.swift */; };
+		8D6DD5102435C746006D2A0C /* BarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6DD50F2435C746006D2A0C /* BarCell.swift */; };
 		8D6FCCE22433154500A77ECC /* DustStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6FCCE12433154500A77ECC /* DustStateTests.swift */; };
 		8D6FCCE72433164A00A77ECC /* DustState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D170E7E2432FAFC00499668 /* DustState.swift */; };
 		8D6FCCEC24336A0900A77ECC /* DustStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6FCCEB24336A0900A77ECC /* DustStateView.swift */; };
@@ -23,6 +27,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8D170D2324361EF000881BEC /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		8D170D2524361F4300881BEC /* DateFormatterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterExtension.swift; sourceTree = "<group>"; };
+		8D170D2724361FA100881BEC /* Grade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grade.swift; sourceTree = "<group>"; };
+		8D170D29243620AD00881BEC /* ChartTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartTableViewDataSource.swift; sourceTree = "<group>"; };
 		8D170E652431C9C400499668 /* Dust.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dust.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D170E682431C9C400499668 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8D170E6A2431C9C400499668 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -33,7 +41,7 @@
 		8D170E762431C9C900499668 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8D170E782431C9C900499668 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D170E7E2432FAFC00499668 /* DustState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustState.swift; sourceTree = "<group>"; };
-		8D6DD50F2435C746006D2A0C /* BarChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartCell.swift; sourceTree = "<group>"; };
+		8D6DD50F2435C746006D2A0C /* BarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCell.swift; sourceTree = "<group>"; };
 		8D6FCCDF2433154400A77ECC /* DustModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DustModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D6FCCE12433154500A77ECC /* DustStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustStateTests.swift; sourceTree = "<group>"; };
 		8D6FCCE32433154500A77ECC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -59,6 +67,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8D170D2224361E8C00881BEC /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				8D170D2324361EF000881BEC /* UIColorExtension.swift */,
+				8D170D2524361F4300881BEC /* DateFormatterExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		8D170E5C2431C9C400499668 = {
 			isa = PBXGroup;
 			children = (
@@ -80,12 +97,13 @@
 		8D170E672431C9C400499668 /* Dust */ = {
 			isa = PBXGroup;
 			children = (
-				8D72B68C243595C1008C5CEC /* HTTPRequest.swift */,
 				8D6FCCE9243369CB00A77ECC /* Model */,
 				8D6FCCEA243369D800A77ECC /* View */,
+				8D6FCCE8243369AF00A77ECC /* ViewController */,
+				8D170D2224361E8C00881BEC /* Extension */,
+				8D72B68C243595C1008C5CEC /* HTTPRequest.swift */,
 				8D170E682431C9C400499668 /* AppDelegate.swift */,
 				8D170E6A2431C9C400499668 /* SceneDelegate.swift */,
-				8D6FCCE8243369AF00A77ECC /* ViewController */,
 				8D170E702431C9C400499668 /* Main.storyboard */,
 				8D170E732431C9C900499668 /* Assets.xcassets */,
 				8D170E752431C9C900499668 /* LaunchScreen.storyboard */,
@@ -116,6 +134,8 @@
 			isa = PBXGroup;
 			children = (
 				8D170E7E2432FAFC00499668 /* DustState.swift */,
+				8D170D2724361FA100881BEC /* Grade.swift */,
+				8D170D29243620AD00881BEC /* ChartTableViewDataSource.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -124,7 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				8D6FCCEB24336A0900A77ECC /* DustStateView.swift */,
-				8D6DD50F2435C746006D2A0C /* BarChartCell.swift */,
+				8D6DD50F2435C746006D2A0C /* BarCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -230,10 +250,14 @@
 			files = (
 				8D170E6F2431C9C400499668 /* ForecastViewController.swift in Sources */,
 				8D170E6D2431C9C400499668 /* StateViewController.swift in Sources */,
+				8D170D2624361F4300881BEC /* DateFormatterExtension.swift in Sources */,
 				8D170E7F2432FAFC00499668 /* DustState.swift in Sources */,
 				8D170E692431C9C400499668 /* AppDelegate.swift in Sources */,
-				8D6DD5102435C746006D2A0C /* BarChartCell.swift in Sources */,
+				8D6DD5102435C746006D2A0C /* BarCell.swift in Sources */,
+				8D170D2424361EF000881BEC /* UIColorExtension.swift in Sources */,
 				8D72B68D243595C1008C5CEC /* HTTPRequest.swift in Sources */,
+				8D170D2824361FA100881BEC /* Grade.swift in Sources */,
+				8D170D2A243620AD00881BEC /* ChartTableViewDataSource.swift in Sources */,
 				8D6FCCEC24336A0900A77ECC /* DustStateView.swift in Sources */,
 				8D170E6B2431C9C400499668 /* SceneDelegate.swift in Sources */,
 			);

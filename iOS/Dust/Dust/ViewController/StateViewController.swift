@@ -5,13 +5,13 @@ class StateViewController: UIViewController {
     // MARK: Properties
 
     @IBOutlet weak var tableView: UITableView!
-    let cellIdentifier: String = "BarCell"
-    var dustStates = [DustState]()
+    var tableViewDataSource: ChartTableViewDataSource!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.dataSource = self
+        tableViewDataSource = ChartTableViewDataSource()
+        tableView.dataSource = tableViewDataSource
 
         // MARK: HTTPRequest JSON
         fetchStates()
@@ -42,11 +42,11 @@ class StateViewController: UIViewController {
             var dustState: DustState
             switch result {
             case .success(let dustStates):
-                self.dustStates = dustStates.list
+                self.tableViewDataSource.updateData(dustStates.list)
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
-                dustState = self.dustStates.first!
+                dustState = dustStates.list.first!
             case .failure(let error):
                 print(error.localizedDescription)
                 #warning("테스트 데이터")
@@ -57,25 +57,3 @@ class StateViewController: UIViewController {
     }
 }
 
-extension StateViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.dustStates.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! BarChartCell
-        let dustState = self.dustStates[indexPath.row]
-
-        cell.dustValue.text = String(dustState.value ?? 0)
-
-        let multiplier: CGFloat = min(1.0, CGFloat(dustState.value ?? 0) / 200.0)
-        cell.dustBarWidthConstraint = cell.dustBar.widthAnchor.constraint(equalTo: cell.contentView.widthAnchor, multiplier: multiplier)
-        cell.dustBarWidthConstraint.isActive = true
-
-        if let grade = GradeFactory.create(by: dustState.originalGrade) {
-            cell.dustBar.backgroundColor = grade.color
-        }
-
-        return cell
-    }
-}
