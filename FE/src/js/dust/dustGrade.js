@@ -18,6 +18,9 @@ function renderFigure(pm10Value) {
 function renderTime(dataTime) {
   DOM.gradeTime.innerText = dataTime;
 }
+export function renderStation(stationName) {
+  DOM.station.innerText = stationName;
+}
 
 function renderGradeScreen(COLOR, EMOJI, TEXT, pm10Value, dataTime) {
   renderBackgroundGrade(COLOR);
