@@ -22,3 +22,24 @@ function touchupEvent() {
 
   option.counter--;
 }
+
+function touchStartPointEvent() {
+  const currentCounter = option.counter;
+
+  DOM.grapeDivList[currentCounter].style.backgroundColor = "#ff8200";
+  DOM.grapeDivList[currentCounter].style.opacity = "0.3";
+
+  option.counter++;
+}
+
+function touchEndPointEvent() {
+  let beforeCounter = option.counter - 1;
+  let currentCounter = option.counter - 2;
+  DOM.grapeDivList[beforeCounter].style.backgroundColor = "";
+  DOM.grapeDivList[beforeCounter].style.opacity = "";
+
+  DOM.grapeDivList[currentCounter].style.backgroundColor = "#ff8200";
+  DOM.grapeDivList[currentCounter].style.opacity = "0.3";
+
+  option.counter--;
+}
