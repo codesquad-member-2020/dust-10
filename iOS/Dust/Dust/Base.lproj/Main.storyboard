@@ -51,24 +51,24 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JcY-HZ-mV4">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="25" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JcY-HZ-mV4">
                                 <rect key="frame" x="0.0" y="419" width="414" height="394"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="graphCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BarCell" id="Jk8-k8-L4M">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="graphCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BarCell" id="Jk8-k8-L4M" customClass="BarChartCell" customModule="Dust" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="25"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jk8-k8-L4M" id="fse-4e-ilQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="25"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WhW-2w-VjG">
-                                                    <rect key="frame" x="0.0" y="0.0" width="372.5" height="43.5"/>
+                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WhW-2w-VjG">
+                                                    <rect key="frame" x="0.0" y="0.0" width="207" height="25"/>
                                                     <color key="backgroundColor" red="0.019607843140000001" green="0.65098039220000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TFL-gk-odC">
-                                                    <rect key="frame" x="367" y="11.5" width="42" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="378" y="5.5" width="31" height="14.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -79,10 +79,12 @@
                                                 <constraint firstAttribute="bottom" secondItem="WhW-2w-VjG" secondAttribute="bottom" id="lbU-hR-BUB"/>
                                                 <constraint firstItem="WhW-2w-VjG" firstAttribute="leading" secondItem="fse-4e-ilQ" secondAttribute="leading" id="oZ3-aU-iPj"/>
                                                 <constraint firstAttribute="trailing" secondItem="TFL-gk-odC" secondAttribute="trailing" constant="5" id="v3D-LC-b4c"/>
-                                                <constraint firstItem="WhW-2w-VjG" firstAttribute="width" secondItem="fse-4e-ilQ" secondAttribute="width" multiplier="0.9" id="vvb-UH-aPn"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="dustBar" destination="WhW-2w-VjG" id="0Uc-84-78g"/>
+                                            <outlet property="dustValue" destination="TFL-gk-odC" id="k13-WF-dUt"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>

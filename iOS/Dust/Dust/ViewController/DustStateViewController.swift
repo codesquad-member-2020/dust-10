@@ -1,8 +1,12 @@
 import UIKit
 
 class DustStateViewController: UIViewController {
+
+    // MARK: Properties
+
     @IBOutlet weak var barChartTableView: UITableView!
     let cellIdentifier: String = "BarCell"
+    var dustStates = [DustState]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +23,11 @@ class DustStateViewController: UIViewController {
             var dustState: DustState
             switch result {
             case .success(let dustStates):
-                dustState = dustStates.list.first!
+                self.dustStates = dustStates.list
+                DispatchQueue.main.async {
+                    self.barChartTableView.reloadData()
+                }
+                dustState = self.dustStates.first!
             case .failure(let error):
                 print(error.localizedDescription)
                 #warning("테스트 데이터")
@@ -28,6 +36,14 @@ class DustStateViewController: UIViewController {
             self.updateMainView(dataSource: dustState)
         }
     }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+
+    }
+
+    // MARK: Private Methods
 
     private func updateMainView(dataSource: DustState) {
         DispatchQueue.main.async {
@@ -40,13 +56,18 @@ class DustStateViewController: UIViewController {
 
 extension DustStateViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return self.dustStates.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = barChartTableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+        let cell = barChartTableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! BarChartCell
+        let dustState = self.dustStates[indexPath.row]
 
-        cell.detailTextLabel?.text = "200"
+        cell.dustValue.text = String(dustState.value)
+        let multiplier: CGFloat = min(1.0, CGFloat(dustState.value) / 200.0)
+        let constraint = cell.dustBar.widthAnchor.constraint(equalTo: cell.contentView.widthAnchor, multiplier: multiplier)
+        cell.dustBarWidthConstraint = constraint
+        cell.dustBarWidthConstraint.isActive = true
 
         return cell
     }

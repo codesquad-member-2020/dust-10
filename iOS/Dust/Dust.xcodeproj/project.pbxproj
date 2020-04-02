@@ -15,6 +15,7 @@
 		8D170E742431C9C900499668 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D170E732431C9C900499668 /* Assets.xcassets */; };
 		8D170E772431C9C900499668 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D170E752431C9C900499668 /* LaunchScreen.storyboard */; };
 		8D170E7F2432FAFC00499668 /* DustState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D170E7E2432FAFC00499668 /* DustState.swift */; };
+		8D6DD5102435C746006D2A0C /* BarChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6DD50F2435C746006D2A0C /* BarChartCell.swift */; };
 		8D6FCCE22433154500A77ECC /* DustStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6FCCE12433154500A77ECC /* DustStateTests.swift */; };
 		8D6FCCE72433164A00A77ECC /* DustState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D170E7E2432FAFC00499668 /* DustState.swift */; };
 		8D6FCCEC24336A0900A77ECC /* DustStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6FCCEB24336A0900A77ECC /* DustStateView.swift */; };
@@ -32,6 +33,7 @@
 		8D170E762431C9C900499668 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8D170E782431C9C900499668 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D170E7E2432FAFC00499668 /* DustState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustState.swift; sourceTree = "<group>"; };
+		8D6DD50F2435C746006D2A0C /* BarChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartCell.swift; sourceTree = "<group>"; };
 		8D6FCCDF2433154400A77ECC /* DustModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DustModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D6FCCE12433154500A77ECC /* DustStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustStateTests.swift; sourceTree = "<group>"; };
 		8D6FCCE32433154500A77ECC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 		8D6FCCEA243369D800A77ECC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8D6DD50F2435C746006D2A0C /* BarChartCell.swift */,
 				8D6FCCEB24336A0900A77ECC /* DustStateView.swift */,
 			);
 			path = View;
@@ -229,6 +232,7 @@
 				8D170E6D2431C9C400499668 /* DustStateViewController.swift in Sources */,
 				8D170E7F2432FAFC00499668 /* DustState.swift in Sources */,
 				8D170E692431C9C400499668 /* AppDelegate.swift in Sources */,
+				8D6DD5102435C746006D2A0C /* BarChartCell.swift in Sources */,
 				8D72B68D243595C1008C5CEC /* HTTPRequest.swift in Sources */,
 				8D6FCCEC24336A0900A77ECC /* DustStateView.swift in Sources */,
 				8D170E6B2431C9C400499668 /* SceneDelegate.swift in Sources */,
