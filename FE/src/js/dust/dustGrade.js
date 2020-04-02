@@ -18,3 +18,11 @@ function renderFigure(pm10Value) {
 function renderTime(dataTime) {
   DOM.gradeTime.innerText = dataTime;
 }
+
+function renderGradeScreen(COLOR, EMOJI, TEXT, pm10Value, dataTime) {
+  renderBackgroundGrade(COLOR);
+  renderEmoji(EMOJI);
+  renderGradeCondition(TEXT);
+  renderFigure(pm10Value);
+  renderTime(dataTime);
+}
