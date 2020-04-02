@@ -26,3 +26,48 @@ function renderGradeScreen(COLOR, EMOJI, TEXT, pm10Value, dataTime) {
   renderFigure(pm10Value);
   renderTime(dataTime);
 }
+
+export function changeGradeInfo({ pm10Grade1h, pm10Value, dataTime }) {
+  switch (pm10Grade1h) {
+    case "1": {
+      renderGradeScreen(
+        CONDITION.GOOD.BACKGROUND,
+        CONDITION.GOOD.EMOJI,
+        CONDITION.GOOD.TEXT,
+        pm10Value,
+        dataTime
+      );
+      break;
+    }
+    case "2": {
+      renderGradeScreen(
+        CONDITION.NOMAL.BACKGROUND,
+        CONDITION.NOMAL.EMOJI,
+        CONDITION.NOMAL.TEXT,
+        pm10Value,
+        dataTime
+      );
+      break;
+    }
+    case "3": {
+      renderGradeScreen(
+        CONDITION.BAD.BACKGROUND,
+        CONDITION.BAD.EMOJI,
+        CONDITION.BAD.TEXT,
+        pm10Value,
+        dataTime
+      );
+      break;
+    }
+    case "4": {
+      renderGradeScreen(
+        CONDITION.VERY_BAD.BACKGROUND,
+        CONDITION.VERY_BAD.EMOJI,
+        CONDITION.VERY_BAD.TEXT,
+        pm10Value,
+        dataTime
+      );
+      break;
+    }
+  }
+}
