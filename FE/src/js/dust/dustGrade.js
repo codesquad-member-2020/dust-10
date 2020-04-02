@@ -19,7 +19,7 @@ function renderTime(dataTime) {
   DOM.gradeTime.innerText = dataTime;
 }
 export function renderStation(stationName) {
-  DOM.station.innerText = stationName;
+  DOM.station.innerText = `${stationName} 측정소 기준`;
 }
 
 function renderGradeScreen(COLOR, EMOJI, TEXT, pm10Value, dataTime) {
