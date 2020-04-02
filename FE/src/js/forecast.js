@@ -7,7 +7,7 @@ const imageMapKey = "imageUrl";
 const forecastApi = `https://dust10.herokuapp.com/api/forecast`;
 const imageMapAlt = "미세먼지 예보 이미지";
 
-const maxImageLength = 3;
+const maxImageLength = 10;
 
 function fetchData(url, func) {
   fetch(url)
@@ -46,35 +46,66 @@ function appendImage(imageUrl) {
 }
 
 function appendData(data, area) {
-  //   area.textContent = "";
   return (area.innerHTML = data);
 }
-
-// function removeArea(dataarea){
-//   return area.innerText = '';
-// }
 
 ///...//슬라이더
 const playControls = ".play-box__controls";
 
-function addToggleToBtn() {
+function onToggleToBtn() {
   const controlBtns = _$(playControls);
   [...controlBtns.children].forEach(btn => btn.classList.toggle("on-none"));
 }
-addToggleToBtn();
 
-onControls();
+const playBtn = "controls__pause";
 
 function onControls() {
   __(playControls).on("touchend", ({ target }) => {
+    onToggleToBtn();
+
     const classList = target.classList;
-    if ([...classList].includes("controls__pause")) return pauseImage();
-    playImage();
+    if ([...classList].includes(playBtn)) return pauseImages();
+    playImages();
   });
+}
+
+const playBox = {
+  xCoordinate: 0,
+  count: 0
+};
+
+function playImages() {
+  const progressBar = _$(".play-box__progress-bar");
+  const scrubberBtn = _$(".progress-bar__scrubber-btn ");
+
+  if (playBox.count % 10 === 0) {
+    const images = [...imageArea.children];
+    const imagesLength = images.length;
+
+    const maxLength = progressBar.offsetWidth;
+    // const maxLength = 100;
+
+    const movingDistance = maxLength / imagesLength;
+
+    console.log(playBox.xCoordinate, movingDistance);
+    scrubberBtn.style.transform = `translateX(${playBox.xCoordinate}px)`;
+    // scrubberBtn.style.left = `${playBox.xCoordinate}%`;
+    playBox.xCoordinate += movingDistance;
+    if (playBox.xCoordinate > maxLength) playBox.xCoordinate = 0;
+  }
+
+  playBox.count++;
+
+  playBox.play = requestAnimationFrame(playImages);
+}
+
+function pauseImages() {
+  cancelAnimationFrame(playBox.play);
 }
 
 function init() {
   fetchData(forecastApi, handleData);
+  onControls();
 }
 
 init();
