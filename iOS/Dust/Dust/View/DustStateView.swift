@@ -13,9 +13,11 @@ class DustStateView: UIView {
 
         stateSymbol.text = grade.symbol
         stateText.text = grade.label
-        self.backgroundView.backgroundColor = grade.color
         dustValue.text = "\(dustState.value ?? 0) µg/m³"
         dateTimeLabel.text = dateFormat(for: dustState.measuredTime)
+
+        let gradientLayer = self.makeGradientLayer(startColor: grade.color.cgColor, in: backgroundView)
+        self.backgroundView.layer.addSublayer(gradientLayer)
     }
 
     private func dateFormat(for dateTime: Date) -> String {
@@ -24,13 +26,14 @@ class DustStateView: UIView {
         return dateFormatter.string(from: dateTime)
     }
 
-    func makeGradientLayer(in view: UIView, startColor: CGColor) {
+    func makeGradientLayer(startColor: CGColor, in view: UIView) -> CAGradientLayer {
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = view.bounds
         gradientLayer.startPoint = CGPoint(x: 0.5, y: 0)
         gradientLayer.endPoint = CGPoint(x: 0.5, y: 1)
         gradientLayer.colors = [ startColor, UIColor.white.cgColor ]
         gradientLayer.shouldRasterize = true
-        view.layer.addSublayer(gradientLayer)
+
+        return gradientLayer
     }
 }

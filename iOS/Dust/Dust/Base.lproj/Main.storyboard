@@ -55,7 +55,7 @@
                                 <rect key="frame" x="0.0" y="419" width="414" height="394"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="graphCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BarCell" id="Jk8-k8-L4M" customClass="BarChartCell" customModule="Dust" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="graphCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BarCell" id="Jk8-k8-L4M" customClass="BarCell" customModule="Dust" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="20"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jk8-k8-L4M" id="fse-4e-ilQ">
