@@ -31,7 +31,7 @@ export const FIGURE_RATING = {
   NOMAL: "2",
   BAD: "3",
   VERY_BAD: "4",
-  NO_DATA: "-"
+  NO_DATA: ""
 };
 
 export const GRAPE_COLOR = {
