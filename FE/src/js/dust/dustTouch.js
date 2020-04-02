@@ -43,3 +43,11 @@ function touchEndPointEvent() {
 
   option.counter--;
 }
+
+function initTouch(e) {
+  option.initialY = e.touches[0].clientY;
+}
+
+function changeTouchY(e) {
+  option.initialY = e.touches[0].clientY - 0.1;
+}
