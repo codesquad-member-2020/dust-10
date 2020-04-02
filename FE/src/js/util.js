@@ -21,11 +21,11 @@ export function __(element) {
     on(event, func) {
       target.addEventListener(event, func);
     },
-    show(className = "on-none") {
-      target.classList.remove(className);
-    },
-    hide(className = "on-none") {
+    show(className = "on-block") {
       target.classList.add(className);
+    },
+    hide(className = "on-block") {
+      target.classList.remove(className);
     },
     transition(target, property) {
       target.style.transition = property;
@@ -38,11 +38,11 @@ export function __$(target) {
     on(event, func) {
       target.addEventListener(event, func);
     },
-    show(className = "on-none") {
-      target.classList.remove(className);
-    },
-    hide(className = "on-none") {
+    show(className = "on-block") {
       target.classList.add(className);
+    },
+    hide(className = "on-block") {
+      target.classList.remove(className);
     },
     transition(property) {
       target.style.transition = property;

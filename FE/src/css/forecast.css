@@ -12,6 +12,7 @@
 }
 
 #dust__forecast .map__img {
+  display: none;
   width: 100%;
 }
 
@@ -70,6 +71,10 @@
   border-radius: 50%;
   background-color: #fff;
   box-shadow: -2px -2px 10px silver;
+}
+
+#dust__forecast .on-block {
+  display: block;
 }
 
 #dust__forecast .on-none {
