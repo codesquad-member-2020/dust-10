@@ -55,6 +55,7 @@ const pauseBtn = "controls__pause";
 const playBtn = "controls__play";
 const scrubberBtn = _$(".progress-bar__scrubber-btn");
 const progressBar = _$(".play-box__progress-bar");
+const progress = _$(".progress-bar__progress");
 //안쓰면 빼기
 const imageSpeed = 50;
 
@@ -65,6 +66,21 @@ function onToggleToBtn() {
 
 function onControls() {
   __(playControls).on("touchend", ({ target }) => ControlsEventHandler(target));
+
+  __$(scrubberBtn).on("touchstart", event => {
+    const clientX = event.touches[0].clientX;
+    const startX = event.target.offsetLeft;
+    const moveOffsetX = startX - clientX;
+    __$(scrubberBtn).on("touchmove", event => {
+      const clientMoveX = event.touches[0].clientX;
+      const position = clientMoveX + moveOffsetX;
+      const maxLength = progressBar.offsetWidth;
+
+      if (position < 0 || position > maxLength) return;
+      __$(scrubberBtn).transition("none");
+      scrubberBtn.style.left = `${position}px`;
+    });
+  });
 }
 
 function ControlsEventHandler(target) {
@@ -88,15 +104,14 @@ function playImages() {
 
   if (playBox.count % 30 === 0) {
     // const maxLength = progressBar.offsetWidth;
-    const movingDistance = maxLength / imagesLength;
+    const movingDistance = maxLength / (imagesLength - 1);
     //둘중 한개 쓰기
 
     controlTransition();
     scrubberBtn.style.left = `${playBox.currentPos}%`;
-    //퍼센트 아니면 픽셀로 쓰기
-    console.log(playBox.currentPos);
-
     playBox.currentPos += movingDistance;
+    //퍼센트 아니면 픽셀로 쓰기
+
     controlImage(imageList, imagesLength);
 
     if (playBox.currentPos > maxLength) {
@@ -104,13 +119,12 @@ function playImages() {
     }
   }
   playBox.count++;
-
   playBox.play = requestAnimationFrame(playImages);
 }
 
 function controlTransition() {
-  if (playBox.currentPos === 0) scrubberBtn.style.transition = `none`;
-  else scrubberBtn.style.transition = `all .5s linear`;
+  if (playBox.currentPos === 0) __$(scrubberBtn).transition("none");
+  else __$(scrubberBtn).transition("all .6s linear");
 }
 
 function controlImage(imageList, imagesLength) {
