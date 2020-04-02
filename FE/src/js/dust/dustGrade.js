@@ -1,4 +1,4 @@
-import { CONDITION } from "../../constants/grade.js";
+import { CONDITION, FIGURE_RATING } from "../../constants/grade.js";
 import DOM from "../../option/dustPageDom.js";
 
 function renderBackgroundGrade(COLOR) {
@@ -29,7 +29,7 @@ function renderGradeScreen(COLOR, EMOJI, TEXT, pm10Value, dataTime) {
 
 export function changeGradeInfo({ pm10Grade1h, pm10Value, dataTime }) {
   switch (pm10Grade1h) {
-    case "1": {
+    case FIGURE_RATING.GOOD: {
       renderGradeScreen(
         CONDITION.GOOD.BACKGROUND,
         CONDITION.GOOD.EMOJI,
@@ -39,7 +39,7 @@ export function changeGradeInfo({ pm10Grade1h, pm10Value, dataTime }) {
       );
       break;
     }
-    case "2": {
+    case FIGURE_RATING.NOMAL: {
       renderGradeScreen(
         CONDITION.NOMAL.BACKGROUND,
         CONDITION.NOMAL.EMOJI,
@@ -49,7 +49,7 @@ export function changeGradeInfo({ pm10Grade1h, pm10Value, dataTime }) {
       );
       break;
     }
-    case "3": {
+    case FIGURE_RATING.BAD: {
       renderGradeScreen(
         CONDITION.BAD.BACKGROUND,
         CONDITION.BAD.EMOJI,
@@ -59,7 +59,7 @@ export function changeGradeInfo({ pm10Grade1h, pm10Value, dataTime }) {
       );
       break;
     }
-    case "4": {
+    case FIGURE_RATING.VERY_BAD: {
       renderGradeScreen(
         CONDITION.VERY_BAD.BACKGROUND,
         CONDITION.VERY_BAD.EMOJI,
