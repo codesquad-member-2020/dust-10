@@ -61,3 +61,36 @@ function swipeDirection(e) {
     0 < diffY ? (option.touchSwipe = "top") : (option.touchSwipe = "bottom");
   }
 }
+
+export function initTouchEvent(dataList, renderGrapeFunc) {
+  DOM.stationList.addEventListener("touchstart", initTouch);
+  DOM.stationList.addEventListener("touchmove", e => {
+    swipeDirection(e);
+    changeTouchY(e);
+
+    const counter = option.counter;
+    const touchSwipe = option.touchSwipe;
+
+    if (counter === 0 && touchSwipe === "bottom") {
+      return;
+    } else if (counter === 24 && touchSwipe === "top") {
+      return;
+    } else if (counter === 0 && touchSwipe === "top") {
+      renderGrapeFunc(dataList[option.counter]);
+      touchStartPointEvent();
+      return;
+    } else if (counter === 24 && touchSwipe === "bottom") {
+      touchEndPointEvent();
+      renderGrapeFunc(dataList[option.counter]);
+      return;
+    } else if (counter === 24) {
+      return;
+    } else if (touchSwipe === "top") {
+      renderGrapeFunc(dataList[option.counter]);
+      touchdownEvent();
+    } else if (touchSwipe === "bottom") {
+      touchupEvent();
+      renderGrapeFunc(dataList[option.counter]);
+    }
+  });
+}
