@@ -64,26 +64,32 @@ function onToggleToBtn() {
   [...controlBtns.children].forEach(btn => btn.classList.toggle("on-none"));
 }
 
-function onControls() {
-  __(playControls).on("touchend", ({ target }) => ControlsEventHandler(target));
-
-  __$(scrubberBtn).on("touchstart", event => {
-    const clientX = event.touches[0].clientX;
-    const startX = event.target.offsetLeft;
-    const moveOffsetX = startX - clientX;
-    __$(scrubberBtn).on("touchmove", event => {
-      const clientMoveX = event.touches[0].clientX;
-      const position = clientMoveX + moveOffsetX;
-      const maxLength = progressBar.offsetWidth;
-
-      if (position < 0 || position > maxLength) return;
-      __$(scrubberBtn).transition("none");
-      scrubberBtn.style.left = `${position}px`;
-    });
-  });
+function onEvent() {
+  __(playControls).on("touchend", ({ target }) => handleControls(target));
+  __$(scrubberBtn).on("touchstart", event => handleTouchStart(event));
 }
 
-function ControlsEventHandler(target) {
+function handleTouchStart(event) {
+  const clientX = event.touches[0].clientX;
+  const startX = event.target.offsetLeft;
+  const moveOffsetX = startX - clientX;
+
+  __$(scrubberBtn).on("touchmove", event =>
+    handleTouchMove(event, moveOffsetX)
+  );
+}
+
+function handleTouchMove(event, moveOffsetX) {
+  const clientMoveX = event.touches[0].clientX;
+  const position = clientMoveX + moveOffsetX;
+  const maxLength = progressBar.offsetWidth;
+
+  if (position < 0 || position > maxLength) return;
+  __$(scrubberBtn).transition("none");
+  scrubberBtn.style.left = `${position}px`;
+}
+
+function handleControls(target) {
   onToggleToBtn();
 
   const classList = target.classList;
@@ -144,7 +150,7 @@ function pauseImages() {
 
 function init() {
   fetchData(forecastApi, handleData);
-  onControls();
+  onEvent();
 }
 
 init();
