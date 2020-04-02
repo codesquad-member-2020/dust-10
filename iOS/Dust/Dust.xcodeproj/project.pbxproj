@@ -11,6 +11,7 @@
 		8D170D2624361F4300881BEC /* DateFormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D170D2524361F4300881BEC /* DateFormatterExtension.swift */; };
 		8D170D2824361FA100881BEC /* Grade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D170D2724361FA100881BEC /* Grade.swift */; };
 		8D170D2A243620AD00881BEC /* ChartTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D170D29243620AD00881BEC /* ChartTableViewDataSource.swift */; };
+		8D170D2E24364DBF00881BEC /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D170D2D24364DBF00881BEC /* Station.swift */; };
 		8D170E692431C9C400499668 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D170E682431C9C400499668 /* AppDelegate.swift */; };
 		8D170E6B2431C9C400499668 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D170E6A2431C9C400499668 /* SceneDelegate.swift */; };
 		8D170E6D2431C9C400499668 /* StateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D170E6C2431C9C400499668 /* StateViewController.swift */; };
@@ -23,7 +24,7 @@
 		8D6FCCE22433154500A77ECC /* DustStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6FCCE12433154500A77ECC /* DustStateTests.swift */; };
 		8D6FCCE72433164A00A77ECC /* DustState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D170E7E2432FAFC00499668 /* DustState.swift */; };
 		8D6FCCEC24336A0900A77ECC /* DustStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6FCCEB24336A0900A77ECC /* DustStateView.swift */; };
-		8D72B68D243595C1008C5CEC /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72B68C243595C1008C5CEC /* HTTPRequest.swift */; };
+		8D72B68D243595C1008C5CEC /* HTTPRequestJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72B68C243595C1008C5CEC /* HTTPRequestJSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		8D170D2524361F4300881BEC /* DateFormatterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterExtension.swift; sourceTree = "<group>"; };
 		8D170D2724361FA100881BEC /* Grade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grade.swift; sourceTree = "<group>"; };
 		8D170D29243620AD00881BEC /* ChartTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartTableViewDataSource.swift; sourceTree = "<group>"; };
+		8D170D2D24364DBF00881BEC /* Station.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
 		8D170E652431C9C400499668 /* Dust.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dust.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D170E682431C9C400499668 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8D170E6A2431C9C400499668 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,7 +48,7 @@
 		8D6FCCE12433154500A77ECC /* DustStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustStateTests.swift; sourceTree = "<group>"; };
 		8D6FCCE32433154500A77ECC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D6FCCEB24336A0900A77ECC /* DustStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustStateView.swift; sourceTree = "<group>"; };
-		8D72B68C243595C1008C5CEC /* HTTPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequest.swift; sourceTree = "<group>"; };
+		8D72B68C243595C1008C5CEC /* HTTPRequestJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequestJSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +103,7 @@
 				8D6FCCEA243369D800A77ECC /* View */,
 				8D6FCCE8243369AF00A77ECC /* ViewController */,
 				8D170D2224361E8C00881BEC /* Extension */,
-				8D72B68C243595C1008C5CEC /* HTTPRequest.swift */,
+				8D72B68C243595C1008C5CEC /* HTTPRequestJSON.swift */,
 				8D170E682431C9C400499668 /* AppDelegate.swift */,
 				8D170E6A2431C9C400499668 /* SceneDelegate.swift */,
 				8D170E702431C9C400499668 /* Main.storyboard */,
@@ -134,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				8D170E7E2432FAFC00499668 /* DustState.swift */,
+				8D170D2D24364DBF00881BEC /* Station.swift */,
 				8D170D2724361FA100881BEC /* Grade.swift */,
 				8D170D29243620AD00881BEC /* ChartTableViewDataSource.swift */,
 			);
@@ -253,9 +256,10 @@
 				8D170D2624361F4300881BEC /* DateFormatterExtension.swift in Sources */,
 				8D170E7F2432FAFC00499668 /* DustState.swift in Sources */,
 				8D170E692431C9C400499668 /* AppDelegate.swift in Sources */,
+				8D170D2E24364DBF00881BEC /* Station.swift in Sources */,
 				8D6DD5102435C746006D2A0C /* BarCell.swift in Sources */,
 				8D170D2424361EF000881BEC /* UIColorExtension.swift in Sources */,
-				8D72B68D243595C1008C5CEC /* HTTPRequest.swift in Sources */,
+				8D72B68D243595C1008C5CEC /* HTTPRequestJSON.swift in Sources */,
 				8D170D2824361FA100881BEC /* Grade.swift in Sources */,
 				8D170D2A243620AD00881BEC /* ChartTableViewDataSource.swift in Sources */,
 				8D6FCCEC24336A0900A77ECC /* DustStateView.swift in Sources */,

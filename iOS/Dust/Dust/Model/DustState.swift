@@ -14,8 +14,7 @@ struct DustState: Codable {
     let measuredTime: Date
     let value: Int?
     let originalGrade: Int?
-    // let stationName: String
-
+    var station: Station?
 }
 
 extension DustState {

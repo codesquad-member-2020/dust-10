@@ -7,14 +7,16 @@ class DustStateView: UIView {
     @IBOutlet weak var stateText: UILabel!
     @IBOutlet weak var dustValue: UILabel!
     @IBOutlet weak var dateTimeLabel: UILabel!
+    @IBOutlet weak var stationLabel: UILabel!
 
-    func setData(with dustState: DustState) {
-        guard let grade = GradeFactory.create(by: dustState.originalGrade) else { return }
+    func setData(with dustState: DustState?) {
+        guard let dustState = dustState, let grade = GradeFactory.create(by: dustState.originalGrade) else { return }
 
         stateSymbol.text = grade.symbol
         stateText.text = grade.label
         dustValue.text = "\(dustState.value ?? 0) µg/m³"
         dateTimeLabel.text = dateFormat(for: dustState.measuredTime)
+        stationLabel.text = dustState.station?.name
 
         let gradientLayer = self.makeGradientLayer(startColor: grade.color.cgColor, in: backgroundView)
         self.backgroundView.layer.addSublayer(gradientLayer)

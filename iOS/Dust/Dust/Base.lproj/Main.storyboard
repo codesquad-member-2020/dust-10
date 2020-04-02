@@ -135,6 +135,7 @@
                             <outlet property="dustValue" destination="A5M-7J-77L" id="ekU-e0-sWm"/>
                             <outlet property="stateSymbol" destination="PFA-5N-uSA" id="3tz-YV-LJF"/>
                             <outlet property="stateText" destination="KQZ-1w-vlD" id="uTq-yC-Fp0"/>
+                            <outlet property="stationLabel" destination="P8Y-gx-7ru" id="kCi-8b-yiT"/>
                         </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="미세먼지" image="cloud.fill" catalog="system" id="acW-dT-cKf"/>
@@ -203,11 +204,6 @@
                                     </slider>
                                 </subviews>
                             </stackView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gOo-0b-nPY">
-                                <rect key="frame" x="20" y="271" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -229,9 +225,6 @@
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="예보" image="clock.fill" catalog="system" id="cPa-gy-q4n"/>
-                    <connections>
-                        <outlet property="gradientView" destination="gOo-0b-nPY" id="30S-vv-9dk"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
