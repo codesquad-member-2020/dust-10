@@ -18,6 +18,11 @@ export const CONDITION = {
     EMOJI: "😷",
     TEXT: "매우나쁨",
     BACKGROUND: "linear-gradient(to bottom, #505050, white)"
+  },
+  NO_DATA: {
+    EMOJI: "💀",
+    TEXT: "측정치X",
+    BACKGROUND: "linear-gradient(to bottom, #505050, white)"
   }
 };
 
@@ -25,12 +30,14 @@ export const FIGURE_RATING = {
   GOOD: "1",
   NOMAL: "2",
   BAD: "3",
-  VERY_BAD: "4"
+  VERY_BAD: "4",
+  NO_DATA: ""
 };
 
 export const GRAPE_COLOR = {
   GOOD: "#32F1FF",
   NOMAL: "#52E252",
   BAD: "#EB0000",
-  VERY_BAD: "#828282"
+  VERY_BAD: "#828282",
+  NO_DATA: "#000000"
 };

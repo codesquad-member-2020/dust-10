@@ -18,6 +18,9 @@ function renderFigure(pm10Value) {
 function renderTime(dataTime) {
   DOM.gradeTime.innerText = dataTime;
 }
+export function renderStation(stationName) {
+  DOM.station.innerText = `${stationName} 측정소 기준`;
+}
 
 function renderGradeScreen(COLOR, EMOJI, TEXT, pm10Value, dataTime) {
   renderBackgroundGrade(COLOR);
@@ -68,6 +71,15 @@ export function changeGradeInfo({ pm10Grade1h, pm10Value, dataTime }) {
         dataTime
       );
       break;
+    }
+    case FIGURE_RATING.NO_DATA: {
+      renderGradeScreen(
+        CONDITION.NO_DATA.BACKGROUND,
+        CONDITION.NO_DATA.EMOJI,
+        CONDITION.NO_DATA.TEXT,
+        pm10Value,
+        dataTime
+      );
     }
   }
 }
