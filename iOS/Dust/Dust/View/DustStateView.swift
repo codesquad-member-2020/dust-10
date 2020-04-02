@@ -38,10 +38,10 @@ struct Grade {
 
 struct GradeFactory {
     static let config: Dictionary<Grade.Kind, (label: String, symbol: String, color: UIColor)> = [
-        .good: ("좋음", "😀", .blue),
-        .normal: ("보통", "🙂", .green),
-        .bad: ("나쁨", "😷", .orange),
-        .veryBad: ("매우 나쁨", "😱", .red)
+        .good: ("좋음", "😀", UIColor(hex: "#3D85DD")!),
+        .normal: ("보통", "🙂", UIColor(hex: "#23BA46")!),
+        .bad: ("나쁨", "😷", UIColor(hex: "#FF8900")!),
+        .veryBad: ("매우 나쁨", "😱", UIColor(hex: "#C10404")!)
     ]
 
     static func create(by rawValue: Int?) -> Grade? {

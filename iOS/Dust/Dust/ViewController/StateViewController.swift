@@ -67,6 +67,7 @@ extension StateViewController: UITableViewDataSource {
         let dustState = self.dustStates[indexPath.row]
 
         cell.dustValue.text = String(dustState.value ?? 0)
+
         let multiplier: CGFloat = min(1.0, CGFloat(dustState.value ?? 0) / 200.0)
         cell.dustBarWidthConstraint = cell.dustBar.widthAnchor.constraint(equalTo: cell.contentView.widthAnchor, multiplier: multiplier)
         cell.dustBarWidthConstraint.isActive = true

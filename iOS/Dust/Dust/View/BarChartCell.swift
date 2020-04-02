@@ -20,5 +20,6 @@ class BarChartCell: UITableViewCell {
         super.prepareForReuse()
 
         self.dustBarWidthConstraint.isActive = false
+        self.dustBar.backgroundColor = .none
     }
 }
