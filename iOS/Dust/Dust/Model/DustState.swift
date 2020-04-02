@@ -1,22 +1,36 @@
-//
-
 import Foundation
 
-struct DustState: Codable {
-//    private let dateFormat = "yyyy-MM-dd HH:mm"
-    var dateTime: Date
-    var value: Float
-    var pm10Grade1h: Int
-    // let stationName: String
+struct DustStates: Codable {
+    var list: [DustState]
+}
 
+struct DustState: Codable {
     enum CodingKeys: String, CodingKey {
-        case dateTime
+        case measuredTime = "dataTime"
         case value = "pm10Value"
-        case pm10Grade1h
+        case originalGrade = "pm10Grade1h"
     }
 
+    let measuredTime: Date
+    let value: Int
+    let originalGrade: Int
+    // let stationName: String
+
     var grade: Grade {
-        GradeFactory.create(by: self.pm10Grade1h)
+        GradeFactory.create(by: self.originalGrade)
+    }
+}
+
+extension DustState {
+    // TODO: 오류 처리
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        self.measuredTime = try container.decode(Date.self, forKey: .measuredTime)
+        let value = try container.decode(String.self, forKey: .value)
+        self.value = Int(value) ?? 0
+        let originalGrade = try container.decode(String.self, forKey: .originalGrade)
+        self.originalGrade = Int(originalGrade) ?? 0
     }
 }
 
@@ -39,8 +53,8 @@ extension DustState {
             .veryBad: ("매우 나쁨", "😱")
         ]
 
-        static func create(by rawValue: Int) -> Grade {
-            guard let kind = Grade.Kind(rawValue: rawValue) else {
+        static func create(by rawValue: Int?) -> Grade {
+            guard let value = rawValue, let kind = Grade.Kind(rawValue: value) else {
                 preconditionFailure("잘못된 값입니다: \(rawValue)")
             }
 

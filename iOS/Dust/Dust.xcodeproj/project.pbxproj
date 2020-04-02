@@ -18,6 +18,7 @@
 		8D6FCCE22433154500A77ECC /* DustStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6FCCE12433154500A77ECC /* DustStateTests.swift */; };
 		8D6FCCE72433164A00A77ECC /* DustState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D170E7E2432FAFC00499668 /* DustState.swift */; };
 		8D6FCCEC24336A0900A77ECC /* DustStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6FCCEB24336A0900A77ECC /* DustStateView.swift */; };
+		8D72B68D243595C1008C5CEC /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72B68C243595C1008C5CEC /* HTTPRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		8D6FCCE12433154500A77ECC /* DustStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustStateTests.swift; sourceTree = "<group>"; };
 		8D6FCCE32433154500A77ECC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D6FCCEB24336A0900A77ECC /* DustStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustStateView.swift; sourceTree = "<group>"; };
+		8D72B68C243595C1008C5CEC /* HTTPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 		8D170E672431C9C400499668 /* Dust */ = {
 			isa = PBXGroup;
 			children = (
+				8D72B68C243595C1008C5CEC /* HTTPRequest.swift */,
 				8D6FCCE9243369CB00A77ECC /* Model */,
 				8D6FCCEA243369D800A77ECC /* View */,
 				8D170E682431C9C400499668 /* AppDelegate.swift */,
@@ -226,6 +229,7 @@
 				8D170E6D2431C9C400499668 /* DustStateViewController.swift in Sources */,
 				8D170E7F2432FAFC00499668 /* DustState.swift in Sources */,
 				8D170E692431C9C400499668 /* AppDelegate.swift in Sources */,
+				8D72B68D243595C1008C5CEC /* HTTPRequest.swift in Sources */,
 				8D6FCCEC24336A0900A77ECC /* DustStateView.swift in Sources */,
 				8D170E6B2431C9C400499668 /* SceneDelegate.swift in Sources */,
 			);
