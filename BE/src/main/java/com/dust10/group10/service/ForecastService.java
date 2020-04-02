@@ -9,7 +9,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 
-import static com.dust10.group10.service.LocationService.SERVICE_KEY;
+import static com.dust10.group10.utils.OpenApiURL.SERVICE_KEY;
+
 
 @Service
 public class ForecastService {

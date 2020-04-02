@@ -6,7 +6,6 @@ import com.dust10.group10.service.ForecastService;
 import com.dust10.group10.service.LocationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,7 +16,7 @@ import java.io.IOException;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api")
-public class LocationController {
+public class ForecastController {
 
     private final LocationService locationService;
     private final ForecastService forecastService;
@@ -27,9 +26,9 @@ public class LocationController {
                                 @RequestParam(value = "latitude") double yAxis) {
         try {
             String station = locationService.locateStation(xAxis, yAxis);
-            return new ApiResponse(HttpStatus.OK, 200, new Station(station));
+            return new ApiResponse(HttpStatus.OK, 200, new Station(station).getStationName());
         } catch (IOException e) {
-            return new ApiResponse(HttpStatus.NOT_FOUND, 404);
+            return new ApiResponse(HttpStatus.BAD_REQUEST, 400);
         }
     }
 
