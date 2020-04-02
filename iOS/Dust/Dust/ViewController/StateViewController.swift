@@ -12,6 +12,7 @@ class StateViewController: UIViewController {
 
         tableViewDataSource = ChartTableViewDataSource()
         tableView.dataSource = tableViewDataSource
+        tableView.delegate = self
 
         // MARK: HTTPRequest JSON
         fetchStates()
@@ -23,10 +24,10 @@ class StateViewController: UIViewController {
 
     // MARK: Private Methods
 
-    private func updateMainView(dataSource: DustState) {
+    private func updateMainView(with data: DustState) {
         DispatchQueue.main.async {
             if let view = self.view as? DustStateView {
-                view.setData(dataSource: dataSource)
+                view.setData(with: data)
             }
         }
     }
@@ -55,8 +56,16 @@ class StateViewController: UIViewController {
                 #warning("테스트 데이터")
                 dustState = DustState(measuredTime: Date(), value: 314, originalGrade: 2)
             }
-            self.updateMainView(dataSource: dustState)
+            self.updateMainView(with: dustState)
         }
     }
 }
 
+extension StateViewController: UITableViewDelegate {
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if let indexPath: IndexPath = self.tableView.indexPathsForVisibleRows?.first {
+            let dustState = self.tableViewDataSource.data(at: indexPath.row)
+            self.updateMainView(with: dustState)
+        }
+    }
+}

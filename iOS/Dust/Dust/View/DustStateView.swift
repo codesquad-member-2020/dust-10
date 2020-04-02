@@ -8,7 +8,7 @@ class DustStateView: UIView {
     @IBOutlet weak var dustValue: UILabel!
     @IBOutlet weak var dateTimeLabel: UILabel!
 
-    func setData(dataSource dustState: DustState) {
+    func setData(with dustState: DustState) {
         guard let grade = GradeFactory.create(by: dustState.originalGrade) else { return }
 
         stateSymbol.text = grade.symbol

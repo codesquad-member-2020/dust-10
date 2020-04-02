@@ -22,4 +22,16 @@ class BarCell: UITableViewCell {
         self.dustBarWidthConstraint.isActive = false
         self.dustBar.backgroundColor = .none
     }
+
+    func specifyProperties(with data: DustState) {
+        self.dustValue.text = String(data.value ?? 0)
+
+        let multiplier: CGFloat = min(1.0, CGFloat(data.value ?? 0) / 200.0)
+        self.dustBarWidthConstraint = self.dustBar.widthAnchor.constraint(equalTo: self.contentView.widthAnchor, multiplier: multiplier)
+        self.dustBarWidthConstraint.isActive = true
+
+        if let grade = GradeFactory.create(by: data.originalGrade) {
+            self.dustBar.backgroundColor = grade.color
+        }
+    }
 }
