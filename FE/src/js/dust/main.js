@@ -1,5 +1,5 @@
 import { renderStationList } from "../dust/dustGrape.js";
-import { changeGradeInfo } from "../dust/dustGrade.js";
+import { changeGradeInfo, renderStation } from "../dust/dustGrade.js";
 import { initTouchEvent } from "../dust/dustTouch.js";
 import DOM from "../../option/dustPageDom.js";
 
@@ -28,7 +28,7 @@ async function fetchDustList(latitude, longitude) {
   const localResponse = await fetch(localUrl);
   const localJSON = await localResponse.json();
   const localStationName = localJSON.stationName;
-
+  renderStation(localStationName);
   const dataListUrl = `http://13.125.3.28:8080/api/dust-status?stationName=${localStationName}`;
 
   try {
@@ -36,6 +36,7 @@ async function fetchDustList(latitude, longitude) {
     const dataListJSON = await dataListResponse.json();
     const dataList24 = dataListJSON.objects;
 
+    changeGradeInfo(dataList24[0]);
     renderStationList(dataList24, DOM.grapeSpanList);
     initTouchEvent(dataList24, changeGradeInfo);
   } catch (err) {
