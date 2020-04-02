@@ -2,15 +2,19 @@ import UIKit
 
 class DustStateView: UIView {
 
+    @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var stateSymbol: UILabel!
     @IBOutlet weak var stateText: UILabel!
     @IBOutlet weak var dustValue: UILabel!
     @IBOutlet weak var dateTimeLabel: UILabel!
 
     func setData(dataSource dustState: DustState) {
-        stateSymbol.text = dustState.grade.symbol
-        stateText.text = dustState.grade.label
-        dustValue.text = "\(dustState.value) µg/m³"
+        guard let grade = GradeFactory.create(by: dustState.originalGrade) else { return }
+
+        stateSymbol.text = grade.symbol
+        stateText.text = grade.label
+        self.backgroundView.backgroundColor = grade.color
+        dustValue.text = "\(dustState.value ?? 0) µg/m³"
         dateTimeLabel.text = dateFormat(for: dustState.measuredTime)
     }
 
@@ -18,6 +22,40 @@ class DustStateView: UIView {
         let dateFormatter = DateFormatter.relativeDate
 
         return dateFormatter.string(from: dateTime)
+    }
+}
+
+struct Grade {
+    enum Kind: Int {
+        case good = 1, normal, bad, veryBad
+    }
+
+    let kind: Kind
+    let label: String
+    let symbol: String
+    let color: UIColor
+}
+
+struct GradeFactory {
+    static let config: Dictionary<Grade.Kind, (label: String, symbol: String, color: UIColor)> = [
+        .good: ("좋음", "😀", .blue),
+        .normal: ("보통", "🙂", .green),
+        .bad: ("나쁨", "😷", .orange),
+        .veryBad: ("매우 나쁨", "😱", .red)
+    ]
+
+    static func create(by rawValue: Int?) -> Grade? {
+        guard let value = rawValue, let kind = Grade.Kind(rawValue: value) else { return nil }
+
+        return self.create(by: kind)
+    }
+
+    static func create(by kind: Grade.Kind) -> Grade {
+        guard let config = self.config[kind] else {
+            preconditionFailure("잘못된 값입니다: \(kind)")
+        }
+
+        return Grade(kind: kind, label: config.label, symbol: config.symbol, color: config.color)
     }
 }
 

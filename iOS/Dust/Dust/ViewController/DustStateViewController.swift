@@ -63,11 +63,14 @@ extension DustStateViewController: UITableViewDataSource {
         let cell = barChartTableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! BarChartCell
         let dustState = self.dustStates[indexPath.row]
 
-        cell.dustValue.text = String(dustState.value)
-        let multiplier: CGFloat = min(1.0, CGFloat(dustState.value) / 200.0)
-        let constraint = cell.dustBar.widthAnchor.constraint(equalTo: cell.contentView.widthAnchor, multiplier: multiplier)
-        cell.dustBarWidthConstraint = constraint
+        cell.dustValue.text = String(dustState.value ?? 0)
+        let multiplier: CGFloat = min(1.0, CGFloat(dustState.value ?? 0) / 200.0)
+        cell.dustBarWidthConstraint = cell.dustBar.widthAnchor.constraint(equalTo: cell.contentView.widthAnchor, multiplier: multiplier)
         cell.dustBarWidthConstraint.isActive = true
+
+        if let grade = GradeFactory.create(by: dustState.originalGrade) {
+            cell.dustBar.backgroundColor = grade.color
+        }
 
         return cell
     }
