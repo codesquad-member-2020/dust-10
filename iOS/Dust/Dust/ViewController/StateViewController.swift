@@ -33,7 +33,10 @@ class StateViewController: UIViewController {
 
     private func fetchStates() {
         let request = HTTPRequest()
-        guard let url = URL(string: "https://dust10.herokuapp.com/api/dust-status") else { return }
+        let urlAddress = "http://13.125.3.28:8080/api/dust-status?stationName=종로구"
+        guard let encoded = urlAddress.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed), let url = URL(string: encoded) else {
+            print("잘못된 URL 주소입니다: \(urlAddress)"); return
+        }
 
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .formatted(DateFormatter.yyyyMMdd)
@@ -42,11 +45,11 @@ class StateViewController: UIViewController {
             var dustState: DustState
             switch result {
             case .success(let dustStates):
-                self.tableViewDataSource.updateData(dustStates.list)
+                self.tableViewDataSource.updateData(dustStates.objects)
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
-                dustState = dustStates.list.first!
+                dustState = dustStates.objects.first!
             case .failure(let error):
                 print(error.localizedDescription)
                 #warning("테스트 데이터")

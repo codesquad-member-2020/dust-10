@@ -26,7 +26,7 @@ class DustStateView: UIView {
         return dateFormatter.string(from: dateTime)
     }
 
-    func makeGradientLayer(startColor: CGColor, in view: UIView) -> CAGradientLayer {
+    private func makeGradientLayer(startColor: CGColor, in view: UIView) -> CAGradientLayer {
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = view.bounds
         gradientLayer.startPoint = CGPoint(x: 0.5, y: 0)

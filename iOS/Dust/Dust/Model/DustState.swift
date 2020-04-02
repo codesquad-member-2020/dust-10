@@ -1,7 +1,7 @@
 import Foundation
 
 struct DustStates: Codable {
-    var list: [DustState]
+    var objects: [DustState]
 }
 
 struct DustState: Codable {
