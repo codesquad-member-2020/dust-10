@@ -30,17 +30,17 @@ public class LocationService {
         return (JsonObject) jsonArray.get(0);
     }
 
-    private double[] xyCoordinate(JsonObject jsonObject) {
-        double tmX = jsonObject.get("x").getAsDouble();
-        double tmY = jsonObject.get("y").getAsDouble();
-        return new double[]{tmX, tmY};
-    }
-
     private String processJsonStationData(String jsonStationData) {
         JsonParser jp = new JsonParser();
         JsonElement je = jp.parse(jsonStationData);
         JsonArray jsonArray = je.getAsJsonObject().get("list").getAsJsonArray();
         JsonObject jsonObject = (JsonObject) jsonArray.get(0);
         return jsonObject.get("stationName").getAsString();
+    }
+
+    private double[] xyCoordinate(JsonObject jsonObject) {
+        double tmX = jsonObject.get("x").getAsDouble();
+        double tmY = jsonObject.get("y").getAsDouble();
+        return new double[]{tmX, tmY};
     }
 }

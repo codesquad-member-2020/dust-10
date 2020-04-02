@@ -38,6 +38,19 @@ public class OpenApiConnect {
         return responseBuilder(conn);
     }
 
+    public String apiConnectStationMeasure(String stationName) throws IOException {
+        StringBuilder urlBuilder = requestApiConnect(MEASURE_OPEN_API_URL);
+        paramAppendUrl(urlBuilder, "&", "numOfRows", "24");
+        paramAppendUrl(urlBuilder, "&", "pageNo", "1");
+        paramAppendUrl(urlBuilder, "&", "stationName", stationName);
+        paramAppendUrl(urlBuilder, "&", "dataTerm", "DAILY");
+        paramAppendUrl(urlBuilder, "&", "ver", "1.3");
+        URL url = new URL(urlBuilder.toString());
+        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+        apiUrlRequest(url, conn);
+        return responseBuilder(conn);
+    }
+
     private StringBuilder requestApiConnect(String openApiUrl) throws IOException {
         StringBuilder urlBuilder = new StringBuilder(openApiUrl);
         paramAppendUrl(urlBuilder, "?", "ServiceKey", SERVICE_KEY);
