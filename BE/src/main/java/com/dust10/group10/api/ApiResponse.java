@@ -7,12 +7,12 @@ import org.springframework.http.HttpStatus;
 public class ApiResponse {
     private HttpStatus status;
     private int statusCode;
-    private String stationName;
+    private String object;
 
-    public ApiResponse(HttpStatus status, int statusCode, String stationName) {
+    public ApiResponse(HttpStatus status, int statusCode, String object) {
         this.status = status;
         this.statusCode = statusCode;
-        this.stationName = stationName;
+        this.object = object;
     }
 
     public ApiResponse(HttpStatus status, int statusCode) {
