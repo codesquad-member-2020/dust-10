@@ -43,6 +43,7 @@ function appendImage(imageUrl) {
     _c(image).add("map__img");
     imageArea.appendChild(image);
   }
+  initImageBox();
 }
 
 function appendData(data, area) {
@@ -57,7 +58,7 @@ const scrubberBtn = _$(".progress-bar__scrubber-btn");
 const progressBar = _$(".play-box__progress-bar");
 const progress = _$(".progress-bar__progress");
 //안쓰면 빼기
-const imageSpeed = 50;
+const playSpeed = 30;
 
 function onToggleToBtn() {
   const controlBtns = _$(playControls);
@@ -81,12 +82,15 @@ function handleTouchStart(event) {
 
 function handleTouchMove(event, moveOffsetX) {
   const clientMoveX = event.touches[0].clientX;
-  const position = clientMoveX + moveOffsetX;
-  const maxLength = progressBar.offsetWidth;
+  playBox.touchPosition = clientMoveX + moveOffsetX;
 
-  if (position < 0 || position > maxLength) return;
+  const progressBarLength = progressBar.offsetWidth;
+  const outOfRange =
+    playBox.touchPosition < 0 || playBox.touchPosition > progressBarLength;
+  if (outOfRange) return;
+
   __$(scrubberBtn).transition("none");
-  scrubberBtn.style.left = `${position}px`;
+  scrubberBtn.style.left = `${playBox.touchPosition}px`;
 }
 
 function handleControls(target) {
@@ -98,30 +102,51 @@ function handleControls(target) {
 }
 
 const playBox = {
-  currentPos: 0,
+  playPosition: 0,
   count: 0,
-  imageIndex: 0
+  imageIndex: 0,
+  distanceList: [],
+  touchPosition: null
 };
 
-function playImages() {
-  const imageList = [...imageArea.children];
-  const imagesLength = imageList.length;
-  const maxLength = 100; //옵션
+const imageBox = {
+  imageList: [],
+  maxLength: 100,
+  length: null
+};
 
-  if (playBox.count % 30 === 0) {
-    // const maxLength = progressBar.offsetWidth;
-    const movingDistance = maxLength / (imagesLength - 1);
+function initImageBox() {
+  imageBox.imageList = [...imageArea.children];
+  imageBox.length = imageBox.imageList.length;
+  imageBox.movingDistance = imageBox.maxLength / (imageBox.length - 1);
+  getMovingDistanceList();
+}
+
+function getMovingDistanceList() {
+  let distance = null;
+  imageBox.imageList.forEach(_ => {
+    distance += imageBox.movingDistance;
+    playBox.distanceList.push(distance);
+  });
+  console.log(playBox.distanceList);
+}
+
+// function
+
+function playImages() {
+  if (playBox.count % playSpeed === 0) {
+    // const imageBox.maxLength = progressBar.offsetWidth;
     //둘중 한개 쓰기
 
     controlTransition();
-    scrubberBtn.style.left = `${playBox.currentPos}%`;
-    playBox.currentPos += movingDistance;
+    scrubberBtn.style.left = `${playBox.playPosition}%`;
+    playBox.playPosition += imageBox.movingDistance;
     //퍼센트 아니면 픽셀로 쓰기
 
-    controlImage(imageList, imagesLength);
+    controlImage();
 
-    if (playBox.currentPos > maxLength) {
-      playBox.currentPos = 0;
+    if (playBox.playPosition > imageBox.maxLength) {
+      playBox.playPosition = 0;
     }
   }
   playBox.count++;
@@ -129,17 +154,17 @@ function playImages() {
 }
 
 function controlTransition() {
-  if (playBox.currentPos === 0) __$(scrubberBtn).transition("none");
+  if (playBox.playPosition === 0) __$(scrubberBtn).transition("none");
   else __$(scrubberBtn).transition("all .6s linear");
 }
 
-function controlImage(imageList, imagesLength) {
+function controlImage() {
   if (playBox.imageIndex - 1 >= 0)
-    __$(imageList[playBox.imageIndex - 1]).hide();
-  if (playBox.imageIndex >= imagesLength) {
+    __$(imageBox.imageList[playBox.imageIndex - 1]).hide();
+  if (playBox.imageIndex >= imageBox.length) {
     playBox.imageIndex = 0;
   }
-  __$(imageList[playBox.imageIndex]).show();
+  __$(imageBox.imageList[playBox.imageIndex]).show();
 
   playBox.imageIndex++;
 }
