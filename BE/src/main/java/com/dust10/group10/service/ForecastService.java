@@ -20,9 +20,9 @@ import static com.dust10.group10.utils.OpenApiURL.SERVICE_KEY;
 @Service
 public class ForecastService {
 
-    public String measureDust(String stationName) throws IOException {
+    public List<DustStatus> measureDust(String stationName) throws IOException {
         String json = new OpenApiConnect().apiConnectStationMeasure(stationName);
-        return jsonDustStatus(jsonParser(json));
+        return (jsonParser(json));
     }
 
     private List<DustStatus> jsonParser(String json) {
@@ -39,16 +39,6 @@ public class ForecastService {
             dustStatuses.add(dustStatus);
         }
         return dustStatuses;
-    }
-
-    private String jsonDustStatus(List<DustStatus> dustStatuses) {
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < dustStatuses.size(); i++) {
-            DustStatus json = dustStatuses.get(i);
-            sb.append(json);
-            sb.append(", ");
-        }
-        return sb.toString();
     }
 
     public String forecastDust() {
