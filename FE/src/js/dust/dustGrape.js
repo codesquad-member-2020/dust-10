@@ -28,3 +28,9 @@ function examinedDustRating(pm10Grade1h, pm10Value, grapeElment) {
     }
   }
 }
+
+export function renderStationList(dataList, grapeList) {
+  dataList.forEach((el, index) => {
+    examinedDustRating(el.pm10Grade1h, el.pm10Value, grapeList[index]);
+  });
+}
