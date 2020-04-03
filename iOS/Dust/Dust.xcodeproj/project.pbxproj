@@ -7,25 +7,48 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D170D2424361EF000881BEC /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D170D2324361EF000881BEC /* UIColorExtension.swift */; };
+		8D170D2624361F4300881BEC /* DateFormatterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D170D2524361F4300881BEC /* DateFormatterExtension.swift */; };
+		8D170D2824361FA100881BEC /* Grade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D170D2724361FA100881BEC /* Grade.swift */; };
+		8D170D2A243620AD00881BEC /* ChartTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D170D29243620AD00881BEC /* ChartTableViewDataSource.swift */; };
+		8D170D2E24364DBF00881BEC /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D170D2D24364DBF00881BEC /* Station.swift */; };
 		8D170E692431C9C400499668 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D170E682431C9C400499668 /* AppDelegate.swift */; };
 		8D170E6B2431C9C400499668 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D170E6A2431C9C400499668 /* SceneDelegate.swift */; };
-		8D170E6D2431C9C400499668 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D170E6C2431C9C400499668 /* FirstViewController.swift */; };
-		8D170E6F2431C9C400499668 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D170E6E2431C9C400499668 /* SecondViewController.swift */; };
+		8D170E6D2431C9C400499668 /* StateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D170E6C2431C9C400499668 /* StateViewController.swift */; };
+		8D170E6F2431C9C400499668 /* ForecastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D170E6E2431C9C400499668 /* ForecastViewController.swift */; };
 		8D170E722431C9C400499668 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D170E702431C9C400499668 /* Main.storyboard */; };
 		8D170E742431C9C900499668 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D170E732431C9C900499668 /* Assets.xcassets */; };
 		8D170E772431C9C900499668 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D170E752431C9C900499668 /* LaunchScreen.storyboard */; };
+		8D170E7F2432FAFC00499668 /* DustState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D170E7E2432FAFC00499668 /* DustState.swift */; };
+		8D6DD5102435C746006D2A0C /* BarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6DD50F2435C746006D2A0C /* BarCell.swift */; };
+		8D6FCCE22433154500A77ECC /* DustStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6FCCE12433154500A77ECC /* DustStateTests.swift */; };
+		8D6FCCE72433164A00A77ECC /* DustState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D170E7E2432FAFC00499668 /* DustState.swift */; };
+		8D6FCCEC24336A0900A77ECC /* DustStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D6FCCEB24336A0900A77ECC /* DustStateView.swift */; };
+		8D72B68D243595C1008C5CEC /* HTTPRequestJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D72B68C243595C1008C5CEC /* HTTPRequestJSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8D170D2324361EF000881BEC /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		8D170D2524361F4300881BEC /* DateFormatterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterExtension.swift; sourceTree = "<group>"; };
+		8D170D2724361FA100881BEC /* Grade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grade.swift; sourceTree = "<group>"; };
+		8D170D29243620AD00881BEC /* ChartTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartTableViewDataSource.swift; sourceTree = "<group>"; };
+		8D170D2D24364DBF00881BEC /* Station.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
 		8D170E652431C9C400499668 /* Dust.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dust.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D170E682431C9C400499668 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8D170E6A2431C9C400499668 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8D170E6C2431C9C400499668 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		8D170E6E2431C9C400499668 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		8D170E6C2431C9C400499668 /* StateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateViewController.swift; sourceTree = "<group>"; };
+		8D170E6E2431C9C400499668 /* ForecastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastViewController.swift; sourceTree = "<group>"; };
 		8D170E712431C9C400499668 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8D170E732431C9C900499668 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D170E762431C9C900499668 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8D170E782431C9C900499668 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D170E7E2432FAFC00499668 /* DustState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustState.swift; sourceTree = "<group>"; };
+		8D6DD50F2435C746006D2A0C /* BarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCell.swift; sourceTree = "<group>"; };
+		8D6FCCDF2433154400A77ECC /* DustModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DustModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D6FCCE12433154500A77ECC /* DustStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustStateTests.swift; sourceTree = "<group>"; };
+		8D6FCCE32433154500A77ECC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D6FCCEB24336A0900A77ECC /* DustStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DustStateView.swift; sourceTree = "<group>"; };
+		8D72B68C243595C1008C5CEC /* HTTPRequestJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequestJSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,13 +59,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8D6FCCDC2433154400A77ECC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8D170D2224361E8C00881BEC /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				8D170D2324361EF000881BEC /* UIColorExtension.swift */,
+				8D170D2524361F4300881BEC /* DateFormatterExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		8D170E5C2431C9C400499668 = {
 			isa = PBXGroup;
 			children = (
 				8D170E672431C9C400499668 /* Dust */,
+				8D6FCCE02433154400A77ECC /* DustModelTests */,
 				8D170E662431C9C400499668 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -51,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				8D170E652431C9C400499668 /* Dust.app */,
+				8D6FCCDF2433154400A77ECC /* DustModelTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -58,16 +99,57 @@
 		8D170E672431C9C400499668 /* Dust */ = {
 			isa = PBXGroup;
 			children = (
+				8D6FCCE9243369CB00A77ECC /* Model */,
+				8D6FCCEA243369D800A77ECC /* View */,
+				8D6FCCE8243369AF00A77ECC /* ViewController */,
+				8D170D2224361E8C00881BEC /* Extension */,
+				8D72B68C243595C1008C5CEC /* HTTPRequestJSON.swift */,
 				8D170E682431C9C400499668 /* AppDelegate.swift */,
 				8D170E6A2431C9C400499668 /* SceneDelegate.swift */,
-				8D170E6C2431C9C400499668 /* FirstViewController.swift */,
-				8D170E6E2431C9C400499668 /* SecondViewController.swift */,
 				8D170E702431C9C400499668 /* Main.storyboard */,
 				8D170E732431C9C900499668 /* Assets.xcassets */,
 				8D170E752431C9C900499668 /* LaunchScreen.storyboard */,
 				8D170E782431C9C900499668 /* Info.plist */,
 			);
 			path = Dust;
+			sourceTree = "<group>";
+		};
+		8D6FCCE02433154400A77ECC /* DustModelTests */ = {
+			isa = PBXGroup;
+			children = (
+				8D6FCCE12433154500A77ECC /* DustStateTests.swift */,
+				8D6FCCE32433154500A77ECC /* Info.plist */,
+			);
+			path = DustModelTests;
+			sourceTree = "<group>";
+		};
+		8D6FCCE8243369AF00A77ECC /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8D170E6C2431C9C400499668 /* StateViewController.swift */,
+				8D170E6E2431C9C400499668 /* ForecastViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		8D6FCCE9243369CB00A77ECC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8D170E7E2432FAFC00499668 /* DustState.swift */,
+				8D170D2D24364DBF00881BEC /* Station.swift */,
+				8D170D2724361FA100881BEC /* Grade.swift */,
+				8D170D29243620AD00881BEC /* ChartTableViewDataSource.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8D6FCCEA243369D800A77ECC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8D6FCCEB24336A0900A77ECC /* DustStateView.swift */,
+				8D6DD50F2435C746006D2A0C /* BarCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -90,6 +172,23 @@
 			productReference = 8D170E652431C9C400499668 /* Dust.app */;
 			productType = "com.apple.product-type.application";
 		};
+		8D6FCCDE2433154400A77ECC /* DustModelTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8D6FCCE62433154500A77ECC /* Build configuration list for PBXNativeTarget "DustModelTests" */;
+			buildPhases = (
+				8D6FCCDB2433154400A77ECC /* Sources */,
+				8D6FCCDC2433154400A77ECC /* Frameworks */,
+				8D6FCCDD2433154400A77ECC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DustModelTests;
+			productName = DustModelTests;
+			productReference = 8D6FCCDF2433154400A77ECC /* DustModelTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -101,6 +200,9 @@
 				ORGANIZATIONNAME = Moss;
 				TargetAttributes = {
 					8D170E642431C9C400499668 = {
+						CreatedOnToolsVersion = 11.4;
+					};
+					8D6FCCDE2433154400A77ECC = {
 						CreatedOnToolsVersion = 11.4;
 					};
 				};
@@ -119,6 +221,7 @@
 			projectRoot = "";
 			targets = (
 				8D170E642431C9C400499668 /* Dust */,
+				8D6FCCDE2433154400A77ECC /* DustModelTests */,
 			);
 		};
 /* End PBXProject section */
@@ -134,6 +237,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8D6FCCDD2433154400A77ECC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -141,10 +251,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D170E6F2431C9C400499668 /* SecondViewController.swift in Sources */,
-				8D170E6D2431C9C400499668 /* FirstViewController.swift in Sources */,
+				8D170E6F2431C9C400499668 /* ForecastViewController.swift in Sources */,
+				8D170E6D2431C9C400499668 /* StateViewController.swift in Sources */,
+				8D170D2624361F4300881BEC /* DateFormatterExtension.swift in Sources */,
+				8D170E7F2432FAFC00499668 /* DustState.swift in Sources */,
 				8D170E692431C9C400499668 /* AppDelegate.swift in Sources */,
+				8D170D2E24364DBF00881BEC /* Station.swift in Sources */,
+				8D6DD5102435C746006D2A0C /* BarCell.swift in Sources */,
+				8D170D2424361EF000881BEC /* UIColorExtension.swift in Sources */,
+				8D72B68D243595C1008C5CEC /* HTTPRequestJSON.swift in Sources */,
+				8D170D2824361FA100881BEC /* Grade.swift in Sources */,
+				8D170D2A243620AD00881BEC /* ChartTableViewDataSource.swift in Sources */,
+				8D6FCCEC24336A0900A77ECC /* DustStateView.swift in Sources */,
 				8D170E6B2431C9C400499668 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D6FCCDB2433154400A77ECC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D6FCCE22433154500A77ECC /* DustStateTests.swift in Sources */,
+				8D6FCCE72433164A00A77ECC /* DustState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,6 +448,42 @@
 			};
 			name = Release;
 		};
+		8D6FCCE42433154500A77ECC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 66M38QS75Q;
+				INFOPLIST_FILE = DustModelTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.moss.DustModelTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8D6FCCE52433154500A77ECC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 66M38QS75Q;
+				INFOPLIST_FILE = DustModelTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.moss.DustModelTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -337,6 +501,15 @@
 			buildConfigurations = (
 				8D170E7C2431C9C900499668 /* Debug */,
 				8D170E7D2431C9C900499668 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8D6FCCE62433154500A77ECC /* Build configuration list for PBXNativeTarget "DustModelTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8D6FCCE42433154500A77ECC /* Debug */,
+				8D6FCCE52433154500A77ECC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
