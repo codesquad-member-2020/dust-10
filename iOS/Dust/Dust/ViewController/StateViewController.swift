@@ -1,4 +1,5 @@
 import UIKit
+import CoreLocation
 
 class StateViewController: UIViewController {
 
@@ -6,6 +7,9 @@ class StateViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     var tableViewDataSource: ChartTableViewDataSource!
+    var locationManager: CLLocationManager!
+
+    // MARK: View Control
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -14,8 +18,13 @@ class StateViewController: UIViewController {
         tableView.dataSource = tableViewDataSource
         tableView.delegate = self
 
-        #warning("Core Location 구현")
-        self.fetchNearStation(longitude: 126.9784147, latitude: 37.5666805)
+        self.locationManager = CLLocationManager()
+
+        if let coordinate = self.getCurrentLocation() {
+            self.fetchNearStation(longitude: coordinate.longitude, latitude: coordinate.latitude)
+        }
+
+//        self.fetchNearStation(longitude: 126.9784147, latitude: 37.5666805)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -60,7 +69,7 @@ class StateViewController: UIViewController {
     }
 
     // TODO: 이름 바꿀 것
-    private func fetchNearStation(longitude: Float, latitude: Float) {
+    private func fetchNearStation(longitude: Double, latitude: Double) {
         let urlAddress = "http://13.125.3.28:8080/api/location?longitude=\(longitude)&latitude=\(latitude)"
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .formatted(DateFormatter.yyyyMMdd)
@@ -90,5 +99,15 @@ extension StateViewController: UITableViewDelegate {
             let dustState = self.tableViewDataSource.data(at: indexPath.row)
             self.updateMainView(with: dustState)
         }
+    }
+}
+
+extension StateViewController: CLLocationManagerDelegate {
+    func getCurrentLocation() -> CLLocationCoordinate2D? {
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.startUpdatingLocation()
+
+        return locationManager.location?.coordinate
     }
 }
