@@ -1,6 +1,6 @@
 .dust__title {
   padding: 3%;
-  font-size: 40px;
+  font-size: 35px;
   font-weight: bold;
 }
 
@@ -34,6 +34,7 @@
 #dust__forecast .forecast__grade {
   font-size: 15px;
   line-height: 16px;
+  color: #777;
 }
 
 #dust__forecast .forecast__play-box {

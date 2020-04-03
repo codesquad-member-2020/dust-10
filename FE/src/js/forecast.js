@@ -1,12 +1,12 @@
 import { _$, __, _c, __$ } from "./util.js";
-import { data } from "./mock.js";
+// import { data } from "./mock.js";
 
 const imageArea = _$(".forecast__map");
 const contentArea = _$(".forecast__content");
 const gradeArea = _$(".forecast__grade");
 const imageMapKey = "imageUrl";
 const imageClassName = "map__img";
-const forecastApi = `https://dust10.herokuapp.com/api/forecast`;
+const forecastApi = `http://13.125.3.28:8080/api/forecast`;
 const imageMapAlt = "미세먼지 예보 이미지";
 
 const maxImageLength = 3;
@@ -18,30 +18,30 @@ function fetchData(url, func) {
 }
 
 function handleData(data) {
-  // const recentIndex = 0;
-  // const recentData = data.list[recentIndex];
-  const forecastContent = data.informOverall;
-  const forecastGrade = data.informGrade;
+  const forecastData = data.forecast;
+  const forecastContent = forecastData.informOverall;
+  const forecastGrade = forecastData.informGrade;
   const forecastMaps = [];
 
-  for (const key in data) {
+  for (const key in forecastData) {
     if (key.startsWith(imageMapKey)) {
-      forecastMaps.push(data[key]);
+      forecastMaps.push(forecastData[key]);
     }
   }
+
   appendImage(forecastMaps);
   appendData(forecastContent, contentArea);
   appendData(forecastGrade, gradeArea);
 }
 
 function appendImage(imageUrl) {
-  imageArea.innerText = "";
+  const firstImage = 0;
 
   for (let i = 0; i < maxImageLength; i++) {
     const image = new Image();
     image.src = imageUrl[i];
     image.alt = imageMapAlt;
-    if (i === 0) _c(image).add("on-block");
+    if (i === firstImage) _c(image).add("on-block");
     _c(image).add(imageClassName);
     imageArea.appendChild(image);
   }
@@ -53,28 +53,43 @@ function appendData(data, area) {
 }
 
 ///...//슬라이더
-const playControls = ".play-box__controls";
 const pauseBtn = "controls__pause";
-const playBtn = "controls__play";
+const playControls = _$(".play-box__controls");
 const scrubberBtn = _$(".progress-bar__scrubber-btn");
 const progressBar = _$(".play-box__progress-bar");
 const progress = _$(".progress-bar__progress");
 
+// const playBox = {
+//   playPosition: 0,
+//   count: 0,
+//   distanceList: [],
+//   position: null,
+//   progressBarLength: progressBar.offsetWidth
+// };
+
+// const imageBox = {
+//   imageList: [],
+//   index: 0,
+//   length: null
+// };
+
 function onToggleToBtn() {
-  const controlBtns = _$(playControls);
-  [...controlBtns.children].forEach(btn => btn.classList.toggle("on-none"));
+  return [...playControls.children].forEach(btn =>
+    btn.classList.toggle("on-none")
+  );
 }
 
 function onEvent() {
-  __(playControls).on("touchend", ({ target }) => handleControls(target));
+  __$(playControls).on("touchend", ({ target }) => handleControls(target));
   __$(scrubberBtn).on("touchstart", event => handleScrubberBtn(event));
   __$(progressBar).on("touchstart", event => handleProgressBar(event));
 }
 
 function handleProgressBar(event) {
   const moveOffsetX = getPosition(event);
-  playBox.position = -moveOffsetX;
-  moveScrubberBtn(-moveOffsetX);
+
+  playBox.position = moveOffsetX;
+  moveScrubberBtn(moveOffsetX);
   changeImage();
 }
 
@@ -89,18 +104,17 @@ function handleScrubberBtn(event) {
 function getPosition(event) {
   const clientX = event.touches[0].clientX;
   const startX = event.target.offsetLeft;
-  return startX - clientX;
+  return clientX - startX;
 }
 
 function handleTouchMove(event, moveOffsetX) {
   const clientMoveX = event.touches[0].clientX;
-  playBox.position = clientMoveX + moveOffsetX;
+  playBox.position = clientMoveX - moveOffsetX;
 
   const outOfRange =
     playBox.position < 0 || playBox.position > playBox.progressBarLength;
   if (outOfRange) return;
 
-  __$(scrubberBtn).transition("none");
   moveScrubberBtn();
   changeImage();
 }
@@ -130,21 +144,22 @@ const imageBox = {
 function initImageBox() {
   imageBox.imageList = [...imageArea.children];
   imageBox.length = imageBox.imageList.length;
-  imageBox.movingDistance = playBox.progressBarLength / imageBox.length;
-  getMovingDistanceList();
+  const movingDistance = playBox.progressBarLength / imageBox.length;
+  getMovingDistanceList(movingDistance);
 }
 
-function getMovingDistanceList() {
+function getMovingDistanceList(movingDistance) {
   let distance = null;
-  imageBox.imageList.forEach(_ => {
-    distance += imageBox.movingDistance;
+
+  return imageBox.imageList.forEach(_ => {
+    distance += movingDistance;
     playBox.distanceList.push(distance);
   });
 }
 
 function playImages() {
   playBox.progressBarLength = progressBar.offsetWidth;
-  playBox.position++;
+  playBox.position += 2;
   if (playBox.position >= playBox.progressBarLength) {
     playBox.position = 0;
   }
@@ -154,7 +169,6 @@ function playImages() {
 }
 
 function findImageIndex(position) {
-  console.log(position);
   return playBox.distanceList.findIndex(distance => position <= distance);
 }
 
@@ -177,12 +191,11 @@ function changeImage() {
 }
 
 function pauseImages() {
-  cancelAnimationFrame(playBox.play);
+  return cancelAnimationFrame(playBox.play);
 }
 
 function init() {
-  // fetchData(forecastApi, handleData);
-  handleData(data);
+  fetchData(forecastApi, handleData);
   onEvent();
 }
 
