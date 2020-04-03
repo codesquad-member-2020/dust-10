@@ -1,20 +1,16 @@
 package com.dust10.group10.utils;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.time.LocalDate;
 
 import static com.dust10.group10.utils.OpenApiURL.*;
 
 public class OpenApiConnect {
-
-    private final Logger logger = LoggerFactory.getLogger(OpenApiConnect.class);
 
     public String kakaoApiConnectBuilder(double xAxis, double yAxis) throws IOException {
         StringBuilder urlBuilder = new StringBuilder(KAKAO_OPEN_API_URL);
@@ -45,6 +41,17 @@ public class OpenApiConnect {
         paramAppendUrl(urlBuilder, "&", "stationName", stationName);
         paramAppendUrl(urlBuilder, "&", "dataTerm", "DAILY");
         paramAppendUrl(urlBuilder, "&", "ver", "1.3");
+        URL url = new URL(urlBuilder.toString());
+        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+        apiUrlRequest(url, conn);
+        return responseBuilder(conn);
+    }
+
+    public String apiConnectForecast() throws IOException {
+        StringBuilder urlBuilder = requestApiConnect(FORECAST_OPEN_API_URL);
+        paramAppendUrl(urlBuilder, "&","InformCode", "PM10");
+        paramAppendUrl(urlBuilder, "&", "ver", "1.1");
+        paramAppendUrl(urlBuilder, "&", "searchDate", LocalDate.now());
         URL url = new URL(urlBuilder.toString());
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         apiUrlRequest(url, conn);

@@ -1,11 +1,8 @@
 package com.dust10.group10.controller;
 
 import com.dust10.group10.api.ApiResponse;
-import com.dust10.group10.domain.DustStatus;
-import com.dust10.group10.domain.Station;
 import com.dust10.group10.service.ForecastService;
 import com.dust10.group10.service.LocationService;
-import com.google.gson.JsonArray;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -43,7 +40,11 @@ public class ForecastController {
     }
 
     @GetMapping("/forecast")
-    public String forecast() {
-        return forecastService.forecastDust();
+    public ApiResponse forecast() {
+        try {
+            return new ApiResponse(HttpStatus.OK, 200, forecastService.forecastDust());
+        } catch (IOException e) {
+            return new ApiResponse(HttpStatus.BAD_REQUEST, 400);
+        }
     }
 }

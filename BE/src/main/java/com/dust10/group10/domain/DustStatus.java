@@ -3,7 +3,7 @@ package com.dust10.group10.domain;
 import lombok.*;
 
 @NoArgsConstructor
-@Getter @Setter
+@Getter
 @ToString
 public class DustStatus {
     private String pm10Value;

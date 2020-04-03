@@ -5,16 +5,12 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 
 @Service
 public class LocationService {
-
-    private final Logger logger = LoggerFactory.getLogger(LocationService.class);
 
     public String locateStation(double xAxis, double yAxis) throws IOException {
         OpenApiConnect apiConnect = new OpenApiConnect();

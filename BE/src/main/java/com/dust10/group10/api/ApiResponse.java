@@ -1,6 +1,7 @@
 package com.dust10.group10.api;
 
 import com.dust10.group10.domain.DustStatus;
+import com.dust10.group10.domain.Forecast;
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
@@ -12,6 +13,7 @@ public class ApiResponse {
     private int statusCode;
     private String stationName;
     private List<DustStatus> objects;
+    private Forecast forecast;
 
     public ApiResponse(HttpStatus status, int statusCode, String stationName) {
         this.status = status;
@@ -28,5 +30,11 @@ public class ApiResponse {
     public ApiResponse(HttpStatus status, int statusCode) {
         this.status = status;
         this.statusCode = statusCode;
+    }
+
+    public ApiResponse(HttpStatus status, int statusCode, Forecast forecast) {
+        this.status = status;
+        this.statusCode = statusCode;
+        this.forecast = forecast;
     }
 }
