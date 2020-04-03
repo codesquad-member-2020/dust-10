@@ -65,6 +65,12 @@ function swipeDirection(e) {
 export function initTouchEvent(dataList, renderGrapeFunc) {
   DOM.stationList.addEventListener("touchstart", initTouch);
   DOM.stationList.addEventListener("touchmove", e => {
+    option.touchDelay++;
+    if (option.touchDelay < option.maxDelayNumber) {
+      return;
+    } else {
+      option.touchDelay = 0;
+    }
     swipeDirection(e);
     changeTouchY(e);
 
