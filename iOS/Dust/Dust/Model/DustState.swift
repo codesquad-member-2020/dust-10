@@ -1,5 +1,6 @@
 import Foundation
 
+/// 미세 먼지 현황 데이터
 struct DustStates: Codable {
     var objects: [DustState]
 }
@@ -19,6 +20,7 @@ struct DustState: Codable {
 
 extension DustState {
     // TODO: 오류 처리
+    /// 디코딩 사용자 정의
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 

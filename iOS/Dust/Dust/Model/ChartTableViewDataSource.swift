@@ -1,5 +1,6 @@
 import UIKit
 
+/// 미세먼지 현황 탭의 테이블 뷰의 DataSource
 class ChartTableViewDataSource: NSObject, UITableViewDataSource {
 
     var dustStates = [DustState]()

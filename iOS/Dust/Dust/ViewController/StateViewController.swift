@@ -1,6 +1,7 @@
 import UIKit
 import CoreLocation
 
+/// 미세먼지 현황 탭의 ViewController
 class StateViewController: UIViewController {
 
     // MARK: Properties

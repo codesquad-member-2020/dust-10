@@ -1,5 +1,6 @@
 import UIKit
 
+/// 미세먼지 측정 데이터의 등급 표시 정보 관리
 struct Grade {
     enum Kind: Int {
         case good = 1, normal, bad, veryBad

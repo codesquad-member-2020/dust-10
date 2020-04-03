@@ -1,5 +1,6 @@
 import UIKit
 
+/// 미세먼지 현황 탭 테이블 뷰의 Cell
 class BarCell: UITableViewCell {
     @IBOutlet weak var dustBar: UIView!
     @IBOutlet weak var dustValue: UILabel!

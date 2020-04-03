@@ -1,6 +1,7 @@
 import UIKit
 
 extension UIColor {
+    /// 6자리의 hex값으로 UIColor 생성
     public convenience init?(hex: String) {
         let r, g, b: CGFloat
 

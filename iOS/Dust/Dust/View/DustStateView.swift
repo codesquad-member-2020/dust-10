@@ -1,5 +1,6 @@
 import UIKit
 
+/// 미세 먼지 현황 탭 상단을 담당하는 뷰
 class DustStateView: UIView {
 
     @IBOutlet weak var backgroundView: UIView!
