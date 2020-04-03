@@ -59,19 +59,20 @@ const scrubberBtn = _$(".progress-bar__scrubber-btn");
 const progressBar = _$(".play-box__progress-bar");
 const progress = _$(".progress-bar__progress");
 
-// const playBox = {
-//   playPosition: 0,
-//   count: 0,
-//   distanceList: [],
-//   position: null,
-//   progressBarLength: progressBar.offsetWidth
-// };
+const movingSpeed = 2;
 
-// const imageBox = {
-//   imageList: [],
-//   index: 0,
-//   length: null
-// };
+const playBox = {
+  playPosition: 0,
+  distanceList: [],
+  position: null,
+  progressBarLength: progressBar.offsetWidth
+};
+
+const imageBox = {
+  imageList: [],
+  index: 0,
+  length: null
+};
 
 function onToggleToBtn() {
   return [...playControls.children].forEach(btn =>
@@ -123,27 +124,14 @@ function handleControls(target) {
   onToggleToBtn();
 
   const classList = target.classList;
-  if ([...classList].includes(pauseBtn)) return pauseImages();
-  playImages();
+  if ([...classList].includes(pauseBtn)) return pauseImageBox();
+  playImageBox();
 }
-
-const playBox = {
-  playPosition: 0,
-  count: 0,
-  distanceList: [],
-  position: null,
-  progressBarLength: progressBar.offsetWidth
-};
-
-const imageBox = {
-  imageList: [],
-  index: 0,
-  length: null
-};
 
 function initImageBox() {
   imageBox.imageList = [...imageArea.children];
   imageBox.length = imageBox.imageList.length;
+
   const movingDistance = playBox.progressBarLength / imageBox.length;
   getMovingDistanceList(movingDistance);
 }
@@ -157,19 +145,16 @@ function getMovingDistanceList(movingDistance) {
   });
 }
 
-function playImages() {
+function playImageBox() {
   playBox.progressBarLength = progressBar.offsetWidth;
-  playBox.position += 2;
-  if (playBox.position >= playBox.progressBarLength) {
-    playBox.position = 0;
-  }
+  playBox.position += movingSpeed;
+
+  const outOfRange = playBox.position >= playBox.progressBarLength;
+  if (outOfRange) playBox.position = 0;
+
   moveScrubberBtn();
   changeImage();
-  playBox.play = requestAnimationFrame(playImages);
-}
-
-function findImageIndex(position) {
-  return playBox.distanceList.findIndex(distance => position <= distance);
+  playBox.play = requestAnimationFrame(playImageBox);
 }
 
 function moveScrubberBtn(distance = playBox.position) {
@@ -178,19 +163,22 @@ function moveScrubberBtn(distance = playBox.position) {
 }
 
 function changeImage() {
-  const imageIndex = findImageIndex(playBox.position);
-  if (imageBox.index === imageIndex) return;
+  const currentImageIndex = findImageIndex(playBox.position);
+  if (imageBox.index === currentImageIndex) return;
 
-  imageBox.index = imageIndex;
+  imageBox.index = currentImageIndex;
 
   const previousImage = _$(".on-block");
-
   if (previousImage) __$(previousImage).hide();
-  console.log(imageBox.index);
+
   __$(imageBox.imageList[imageBox.index]).show();
 }
 
-function pauseImages() {
+function findImageIndex(position) {
+  return playBox.distanceList.findIndex(distance => position <= distance);
+}
+
+function pauseImageBox() {
   return cancelAnimationFrame(playBox.play);
 }
 
