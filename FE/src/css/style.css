@@ -1,0 +1,73 @@
+@import "forecast.css";
+@import "reset.css";
+@import url("https://fonts.googleapis.com/css2?family=Poor+Story&display=swap");
+.nav {
+  display: flex;
+}
+.nav a {
+  font-weight: bold;
+  font-size: 25px;
+  text-decoration: none;
+  color: black;
+}
+.nav_button {
+  border: none;
+  width: 50%;
+  height: 70px;
+  background-color: #f8fafb;
+}
+.grade {
+  padding: 10px;
+  background: linear-gradient(to bottom, #32f1ff, white);
+}
+.grade_emoji {
+  margin-top: 15px;
+  font-size: 150px;
+}
+.grade_condition {
+  margin-top: 30px;
+  font-size: 30px;
+  font-weight: bold;
+}
+.grade_unit {
+  margin-top: 20px;
+  font-weight: bold;
+}
+.measuring_station {
+  margin-top: 2%;
+  font-weight: bold;
+}
+.station_list {
+  margin-top: 20px;
+  max-height: 408px;
+  min-height: 200px;
+  overflow-y: scroll;
+}
+
+.line {
+  border-bottom: 1px solid #ccc;
+  height: 18px;
+}
+
+.line_text {
+  animation: stack 2s 1;
+  text-align: right;
+  font-size: 15px;
+  font-weight: bold;
+  display: block;
+  border-radius: 10px;
+}
+
+@keyframes stack {
+  0% {
+    width: 0;
+    color: rgba(255, 255, 255, 0);
+  }
+  40% {
+    color: rgba(255, 255, 255, 0);
+  }
+  100% {
+    width: 100%;
+    color: rgba(255, 255, 255, 0);
+  }
+}
