@@ -81,7 +81,11 @@ class StateViewController: UIViewController {
 
 extension StateViewController: UITableViewDelegate {
     //TODO: (선택)셀을 선택했을 때도 반영하도록 추가
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        updateMainViewWhenScrolling()
+    }
+
+    private func updateMainViewWhenScrolling() {
         if let indexPath: IndexPath = self.tableView.indexPathsForVisibleRows?.first {
             let dustState = self.tableViewDataSource.data(at: indexPath.row)
             self.updateMainView(with: dustState)

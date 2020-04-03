@@ -16,7 +16,9 @@ class DustStateView: UIView {
         stateText.text = grade.label
         dustValue.text = "\(dustState.value ?? 0) µg/m³"
         dateTimeLabel.text = dateFormat(for: dustState.measuredTime)
-        stationLabel.text = dustState.station?.name
+        if let name = dustState.station?.name {
+            stationLabel.text = name
+        }
 
         let gradientLayer = self.makeGradientLayer(startColor: grade.color.cgColor, in: backgroundView)
         self.backgroundView.layer.addSublayer(gradientLayer)
