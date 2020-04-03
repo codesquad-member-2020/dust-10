@@ -2,7 +2,7 @@ const path = require("path");
 
 module.exports = {
   mode: "development",
-  entry: { dust: "./js/dust/main.js" },
+  entry: { dust: "./js/dust/main.js", forecast: "./js/forecast/main.js" },
   output: {
     path: path.resolve(__dirname, "public"),
     filename: "[name]_bundle.js"

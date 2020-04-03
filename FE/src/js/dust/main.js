@@ -23,6 +23,10 @@ async function fetchDustList(latitude, longitude) {
     const dataListJSON = await dataListResponse.json();
     const dataList24 = dataListJSON.objects;
 
+    alert(`모바일 환경에서 테스트 가능합니다. 개발자 도구를 여신 후 모바일에서 실행해 주세요 !
+        Ctrl + Shift + I , Ctrl + Shift + M
+    `);
+
     changeGradeInfo(dataList24[0]);
     renderStationList(dataList24, DOM.grapeSpanList);
     initTouchEvent(dataList24, changeGradeInfo);
