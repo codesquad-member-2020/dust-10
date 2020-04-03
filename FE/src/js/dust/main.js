@@ -1,6 +1,7 @@
 import { renderStationList } from "../dust/dustGrape.js";
 import { changeGradeInfo, renderStation } from "../dust/dustGrade.js";
 import { initTouchEvent } from "../dust/dustTouch.js";
+import css from "../../css/style.css";
 
 import DOM from "../../option/dustPageDom.js";
 import COORDIMATE from "../../constants/coordinate.js";
