@@ -1,58 +1,5 @@
 import { _$, __, _c, __$ } from "./util.js";
-// import { data } from "./mock.js";
-
-const imageArea = _$(".forecast__map");
-const contentArea = _$(".forecast__content");
-const gradeArea = _$(".forecast__grade");
-const imageMapKey = "imageUrl";
-const imageClassName = "map__img";
-const forecastApi = `http://13.125.3.28:8080/api/forecast`;
-const imageMapAlt = "미세먼지 예보 이미지";
-
-const maxImageLength = 3;
-
-function fetchData(url, func) {
-  fetch(url)
-    .then(res => res.json())
-    .then(data => func(data));
-}
-
-function handleData(data) {
-  const forecastData = data.forecast;
-  const forecastContent = forecastData.informOverall;
-  const forecastGrade = forecastData.informGrade;
-  const forecastMaps = [];
-
-  for (const key in forecastData) {
-    if (key.startsWith(imageMapKey)) {
-      forecastMaps.push(forecastData[key]);
-    }
-  }
-
-  appendImage(forecastMaps);
-  appendData(forecastContent, contentArea);
-  appendData(forecastGrade, gradeArea);
-}
-
-function appendImage(imageUrl) {
-  const firstImage = 0;
-
-  for (let i = 0; i < maxImageLength; i++) {
-    const image = new Image();
-    image.src = imageUrl[i];
-    image.alt = imageMapAlt;
-    if (i === firstImage) _c(image).add("on-block");
-    _c(image).add(imageClassName);
-    imageArea.appendChild(image);
-  }
-  initImageBox();
-}
-
-function appendData(data, area) {
-  return (area.innerHTML = data);
-}
-
-///...//슬라이더
+import { imageArea } from "./fetchData.js";
 const pauseBtn = "controls__pause";
 const playControls = _$(".play-box__controls");
 const scrubberBtn = _$(".progress-bar__scrubber-btn");
@@ -65,7 +12,7 @@ const playBox = {
   playPosition: 0,
   distanceList: [],
   position: null,
-  progressBarLength: progressBar.offsetWidth
+  progressBarWidth: progressBar.offsetWidth
 };
 
 const imageBox = {
@@ -80,7 +27,7 @@ function onToggleToBtn() {
   );
 }
 
-function onEvent() {
+export function onEvent() {
   __$(playControls).on("touchend", ({ target }) => handleControls(target));
   __$(scrubberBtn).on("touchstart", event => handleScrubberBtn(event));
   __$(progressBar).on("touchstart", event => handleProgressBar(event));
@@ -113,7 +60,7 @@ function handleTouchMove(event, moveOffsetX) {
   playBox.position = clientMoveX - moveOffsetX;
 
   const outOfRange =
-    playBox.position < 0 || playBox.position > playBox.progressBarLength;
+    playBox.position < 0 || playBox.position > playBox.progressBarWidth;
   if (outOfRange) return;
 
   moveScrubberBtn();
@@ -125,19 +72,26 @@ function handleControls(target) {
 
   const classList = target.classList;
   if ([...classList].includes(pauseBtn)) return pauseImageBox();
-  playImageBox();
+  return playImageBox();
 }
 
-function initImageBox() {
+export function initImageBox() {
   imageBox.imageList = [...imageArea.children];
   imageBox.length = imageBox.imageList.length;
 
-  const movingDistance = playBox.progressBarLength / imageBox.length;
-  getMovingDistanceList(movingDistance);
+  return getMovingDistance();
+}
+
+function getMovingDistance() {
+  playBox.progressBarWidth = progressBar.offsetWidth;
+
+  const movingDistance = playBox.progressBarWidth / imageBox.length;
+  return getMovingDistanceList(movingDistance);
 }
 
 function getMovingDistanceList(movingDistance) {
   let distance = null;
+  playBox.distanceList = [];
 
   return imageBox.imageList.forEach(_ => {
     distance += movingDistance;
@@ -146,10 +100,10 @@ function getMovingDistanceList(movingDistance) {
 }
 
 function playImageBox() {
-  playBox.progressBarLength = progressBar.offsetWidth;
+  getMovingDistance(); //progressBar width변경 없는지 다시한번 확인
   playBox.position += movingSpeed;
 
-  const outOfRange = playBox.position >= playBox.progressBarLength;
+  const outOfRange = playBox.position >= playBox.progressBarWidth;
   if (outOfRange) playBox.position = 0;
 
   moveScrubberBtn();
@@ -181,10 +135,3 @@ function findImageIndex(position) {
 function pauseImageBox() {
   return cancelAnimationFrame(playBox.play);
 }
-
-function init() {
-  fetchData(forecastApi, handleData);
-  onEvent();
-}
-
-init();
