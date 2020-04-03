@@ -40,8 +40,8 @@
 
 ## 서버 배포
 
-- heroku에 배포
-- `dev` 브랜치 사용
+- EC2에 배포 [해당 링크](http://13.125.3.28/)
+- `deploy` 브랜치 사용
 
 # 협업용 문서
 - [요구사항 정리](https://docs.google.com/spreadsheets/d/1F78nVhjuqQlbdAzVjLXEOuOamQhsr9yzkr-gz22pr3k/edit?usp=sharing)
