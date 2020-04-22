@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>forecast</title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+    />
+  </head>
+  <body>
+    <div id="dust-wrap">
+      <nav class="nav">
+        <button class="nav_button dust_main">
+          <a href="./index.html">미세먼지</a>
+        </button>
+        <button class="nav_button forecast">
+          <a href="./forecast.html">예보</a>
+        </button>
+      </nav>
+
+      <main id="dust__forecast">
+        <h1 class="dust__title">미세먼지 예보</h1>
+        <div class="forecast__map"></div>
+        <div class="forecast__container">
+          <p class="forecast__content">
+            미세먼지 영상은 환경부 국립과학원이 에어코리아를 통해 발표하는
+            예측모델에 의한 예보이므로, 실제 측정 수치와 차이가 발생할 수
+            있습니다. 기준보기
+          </p>
+          <p class="forecast__grade">
+            미세먼지 영상은 환경부 국립과학원이 에어코리아를 통해 발표하는
+            예측모델에 의한 예보이므로, 실제 측정 수치와 차이가 발생할 수
+            있습니다. 기준보기
+          </p>
+          <div id="forecast__play-box">
+            <button class="play-box__controls">
+              <i
+                class="fas fa-play fa-1x controls__play"
+                aria-label="재생 버튼"
+              ></i>
+              <i
+                class="fas fa-pause fa-1x controls__pause on-none"
+                aria-label="일시정지 버튼"
+              ></i>
+            </button>
+            <div class="play-box__progress-bar" aria-label="영상 탐색 슬라이더">
+              <div class="progress-bar__progress"></div>
+              <button
+                class="progress-bar__scrubber-btn"
+                aria-label="영상 탐색 이동 버튼"
+              ></button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="../public/forecast_bundle.js"></script>
+  </body>
+</html>
